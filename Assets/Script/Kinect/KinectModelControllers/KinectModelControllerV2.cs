@@ -117,11 +117,11 @@ public class KinectModelControllerV2 : MonoBehaviour {
 		_boneDir = new Vector3[(int)Kinect.NuiSkeletonPositionIndex.Count];
 		
 		//first save the special rotations for the hip and spine
-		//_hipRight = Hip_Right.transform.position - Hip_Left.transform.position;
-		//_hipRight = Hip_Override.transform.InverseTransformDirection(_hipRight);
+		_hipRight = Hip_Right.transform.position - Hip_Left.transform.position;
+		_hipRight = Hip_Override.transform.InverseTransformDirection(_hipRight);
 		
-		//_chestRight = Shoulder_Right.transform.position - Shoulder_Left.transform.position;
-		//_chestRight = Spine.transform.InverseTransformDirection(_chestRight);
+		_chestRight = Shoulder_Right.transform.position - Shoulder_Left.transform.position;
+		_chestRight = Spine.transform.InverseTransformDirection(_chestRight);
 		
 		//get direction of all other bones
 		for( int ii = 0; ii < (int)Kinect.NuiSkeletonPositionIndex.Count; ii++)
