@@ -45,8 +45,6 @@ public class testHipController : MonoBehaviour {
 	public GameObject Hip_Center;
 //	public GameObject Spine;
 //	public GameObject Shoulder_Center;
-	public GameObject Head;
-	public GameObject test;
 //	public GameObject Shoulder_Left;
 //	public GameObject Elbow_Left;
 //	public GameObject Wrist_Left;
@@ -76,17 +74,15 @@ public class testHipController : MonoBehaviour {
 	void Start () {
 		//store bones in a list for easier access
 		//_bones = new GameObject[(int)Kinect.NuiSkeletonPositionIndex.Count];
-		_bones = new GameObject[2];
+		_bones = new GameObject[1];
 		Debug.Log ((int)Kinect.NuiSkeletonPositionIndex.Count);
 		_bones [0] = Hip_Center;
-		_bones [1] = Head;
 		//_bonePos = new Vector4[(int)BoneIndex.Num_Bones];
 
 	}
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (test.transform.position);
 		if(player == -1)
 			return;
 		//update all of the bones positions
@@ -96,10 +92,6 @@ public class testHipController : MonoBehaviour {
 				sw.bonePos[player,0].x * scale,
 				sw.bonePos[player,0].y * scale,
 				sw.bonePos[player,0].z * scale);
-			_bones[1].transform.position = new Vector3(
-				test.transform.position.x * scale,
-				test.transform.position.y * scale,
-				test.transform.position.z * scale);
 		}
 	}
 }
