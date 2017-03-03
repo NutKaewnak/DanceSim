@@ -341,7 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   device: {fileID: 155010545}
   emulator: {fileID: 155010546}
-  useEmulator: 0
+  useEmulator: 1
 --- !u!114 &155010545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1531006e9360c84f81708b2b6106d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputFile: Assets/Recordings/playback13
+  inputFile: Assets/Recordings/playback12
   sensorHeight: 1
   kinectCenter: {x: 0, y: 0, z: 2}
   lookAt: {x: 0, y: 1, z: 0, w: 0}
