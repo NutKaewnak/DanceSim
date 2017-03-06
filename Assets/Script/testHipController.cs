@@ -75,7 +75,6 @@ public class testHipController : MonoBehaviour {
 		//store bones in a list for easier access
 		//_bones = new GameObject[(int)Kinect.NuiSkeletonPositionIndex.Count];
 		_bones = new GameObject[1];
-		Debug.Log ((int)Kinect.NuiSkeletonPositionIndex.Count);
 		_bones [0] = Hip_Center;
 		//_bonePos = new Vector4[(int)BoneIndex.Num_Bones];
 
