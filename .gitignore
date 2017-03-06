@@ -6,8 +6,6 @@ Obj/
 UnityGenerated/
 Library/
 Assets/AssetStoreTools*
-Assets/MicrosoftSDK_Asset*
-Assets/Recordings
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -22,6 +20,7 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
+*.pdf*
 
 # ============ #
 # OS generated #
