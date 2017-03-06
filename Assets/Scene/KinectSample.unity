@@ -363,6 +363,14 @@ MonoBehaviour:
   maxDeviationRadius: 0.04
   enableNearMode: 1
   skeltonTrackingMode: 1
+  updatedSkeleton: 0
+  newSkeleton: 0
+  updatedColor: 0
+  newColor: 0
+  colorImage: []
+  updatedDepth: 0
+  newDepth: 0
+  depthPlayerData: []
 --- !u!114 &155010546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,10 +382,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1531006e9360c84f81708b2b6106d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputFile: Assets/Recordings/playback12
+  inputFile: 4173736574732f5265636f7264696e67732f706c61796261636b3132
+  inputFileDefault: 4173736574732f4b696e6563742f5265636f7264696e67732f706c61796261636b44656661756c74
+  playbackSpeed: 0.0333
+  timer: 0
+  isDefault: 1
   sensorHeight: 1
   kinectCenter: {x: 0, y: 0, z: 2}
   lookAt: {x: 0, y: 1, z: 0, w: 0}
+  newSkeleton: 0
+  curFrame: 0
 --- !u!114 &155010547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,8 +404,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   devOrEmu: {fileID: 155010544}
+  updatedSkeleton: 0
+  newSkeleton: 0
   players: 
   trackedPlayers: 
+  deltaTime: 0
+  kinectToWorld:
+    e00: 0
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 0
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 0
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 0
   flipMatrix:
     e00: 1
     e01: 0
@@ -422,8 +456,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   devOrEmu: {fileID: 155010544}
   storedFrames: 1
-  depthImg: 
-  players: 
+  updatedSeqmentation: 0
+  newSeqmentation: 0
+  depthImg: []
+  players: []
 --- !u!114 &155010549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +472,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   devOrEmu: {fileID: 155010544}
-  outputFile: Assets/Recordings/playback
+  outputFile: 4173736574732f5265636f7264696e67732f706c61796261636b
+  isRecording: 0
+  isStopRecord: 0
+  startTime: 0
+  fileCount: 0
 --- !u!4 &179146625
 Transform:
   m_ObjectHideFlags: 0
@@ -932,72 +972,6 @@ Transform:
   m_Father: {fileID: 1014520033}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &424809428
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.122
-      objectReference: {fileID: 0}
-    - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -3.868
-      objectReference: {fileID: 0}
-    - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 496262, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.53267515
-      objectReference: {fileID: 0}
-    - target: {fileID: 496262, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.07034045
-      objectReference: {fileID: 0}
-    - target: {fileID: 496262, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.83613265
-      objectReference: {fileID: 0}
-    - target: {fileID: 496262, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.11041513
-      objectReference: {fileID: 0}
-    - target: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_Name
-      value: ThirdPersonController
-      objectReference: {fileID: 0}
-    - target: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &446999668
 Transform:
   m_ObjectHideFlags: 0
@@ -1091,7 +1065,7 @@ Transform:
   m_LocalScale: {x: 5, y: 1, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &476223169
 MonoBehaviour:
@@ -2083,6 +2057,7 @@ MonoBehaviour:
   Knee_Right: {fileID: 1807637174}
   Ankle_Right: {fileID: 895942350}
   Foot_Right: {fileID: 2039343462}
+  _bones: []
   player: 0
   Mask: 1048575
   scale: 1
@@ -3055,7 +3030,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400176, guid: ae23d50304c93b9418b65cec8f9fe954, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: ae23d50304c93b9418b65cec8f9fe954, type: 3}
       propertyPath: m_Controller
@@ -3907,7 +3882,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4299372976972898, guid: ee94e00af6086dc438ea533be318c327, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4635170558931504, guid: ee94e00af6086dc438ea533be318c327, type: 2}
       propertyPath: m_LocalRotation.x
