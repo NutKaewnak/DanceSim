@@ -17,7 +17,7 @@ public class AnimController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		anim.PlayInFixedTime("movement",-1,scroll.value*maxlenght);
+		anim.PlayInFixedTime(0,-1,scroll.value*maxlenght);
 		curSec.text=(scroll.value*maxlenght).ToString();
 	}
 
