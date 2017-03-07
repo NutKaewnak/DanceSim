@@ -72,16 +72,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputFile: Assets/Recordings/playback12
-  sensorHeight: 0.5
+  sensorHeight: 1
   kinectCenter: {x: 0, y: 0, z: 2}
-  lookAt: {x: 0, y: 1, z: 1.5, w: 0}
+  lookAt: {x: 0, y: 1, z: 1, w: 0}
 --- !u!114 &114335619961850348
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984143431499560}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ca6d895ba931924f90d614ff752ab42, type: 3}
   m_Name: 
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   device: {fileID: 114335619961850348}
   emulator: {fileID: 114110633332780418}
-  useEmulator: 1
+  useEmulator: 0
 --- !u!114 &114910464256197192
 MonoBehaviour:
   m_ObjectHideFlags: 1
