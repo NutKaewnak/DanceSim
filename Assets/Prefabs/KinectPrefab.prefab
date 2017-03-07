@@ -72,9 +72,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputFile: Assets/Recordings/playback12
-  sensorHeight: 1
+  sensorHeight: 0.5
   kinectCenter: {x: 0, y: 0, z: 2}
-  lookAt: {x: 0, y: 1, z: 0, w: 0}
+  lookAt: {x: 0, y: 1, z: 1.5, w: 0}
 --- !u!114 &114335619961850348
 MonoBehaviour:
   m_ObjectHideFlags: 1
