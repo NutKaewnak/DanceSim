@@ -1163,10 +1163,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4276091795707174}
-  - component: {fileID: 95312797726198372}
-  - component: {fileID: 114618548566535012}
   m_Layer: 0
-  m_Name: U_TestAnim
+  m_Name: U_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2601,23 +2599,6 @@ Transform:
   m_Father: {fileID: 4156573960550436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95312797726198372
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1837080329491394}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 373142fa575d44c4ba91c11793cee22d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95498070134540764
 Animator:
   serializedVersion: 3
@@ -2635,21 +2616,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114618548566535012
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1837080329491394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37d4074edc958e74f9e1f503c4c54f96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scroll: {fileID: 0}
-  maxlenght: 60
-  maxSec: {fileID: 0}
-  curSec: {fileID: 0}
 --- !u!114 &114718553941453722
 MonoBehaviour:
   m_ObjectHideFlags: 1
