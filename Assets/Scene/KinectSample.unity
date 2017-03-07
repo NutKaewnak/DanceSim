@@ -1988,6 +1988,11 @@ Prefab:
       propertyPath: m_Name
       value: KinectPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 114335619961850348, guid: 6980c7a44d38be94f9c38cf904ecbf0b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6980c7a44d38be94f9c38cf904ecbf0b, type: 2}
   m_IsPrefabParent: 0
