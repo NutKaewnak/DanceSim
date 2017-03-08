@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 65213923918009234}
   - component: {fileID: 54474466435923348}
   - component: {fileID: 114866633737128180}
+  - component: {fileID: 114571161391387644}
   m_Layer: 0
   m_Name: DancerModel_empty
   m_TagString: Untagged
@@ -2654,6 +2655,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.45, y: 2, z: 0.24096271}
   m_Center: {x: 0, y: 1, z: 0.003502354}
+--- !u!114 &114571161391387644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1388713515971668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f736089f85b89cb4ea95811ad32d0222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childModel: {fileID: 1743211490562676}
 --- !u!114 &114866633737128180
 MonoBehaviour:
   m_ObjectHideFlags: 1

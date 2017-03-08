@@ -320,8 +320,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4073315845032588}
-  - component: {fileID: 95399059258552216}
-  - component: {fileID: 114933698503493314}
+  - component: {fileID: 95570894375028330}
   m_Layer: 0
   m_Name: U_Character_REF Kinect combined
   m_TagString: Untagged
@@ -400,6 +399,7 @@ GameObject:
   - component: {fileID: 65183835521072142}
   - component: {fileID: 54192105007799592}
   - component: {fileID: 114517640886409946}
+  - component: {fileID: 114476622868211392}
   m_Layer: 0
   m_Name: DancerModel
   m_TagString: Untagged
@@ -2540,7 +2540,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1310231805077562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.95, y: 1.05, z: 0}
+  m_LocalPosition: {x: 0, y: 2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4073315845032588}
@@ -2656,7 +2656,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.45, y: 2, z: 0.24096271}
   m_Center: {x: 0, y: 1, z: 0.003502354}
---- !u!95 &95399059258552216
+--- !u!95 &95570894375028330
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -2665,7 +2665,7 @@ Animator:
   m_GameObject: {fileID: 1225394741882308}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: af31e7c20589d024aa2243b55d1cb1cc, type: 2}
+  m_Controller: {fileID: 9100000, guid: abef60f74956c764b9ef53943bf83e09, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2673,6 +2673,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114476622868211392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310231805077562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f736089f85b89cb4ea95811ad32d0222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childModel: {fileID: 1225394741882308}
 --- !u!114 &114517640886409946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2685,21 +2697,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 1310231805077562}
---- !u!114 &114933698503493314
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1225394741882308}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37d4074edc958e74f9e1f503c4c54f96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scroll: {fileID: 0}
-  maxlenght: 60
-  maxSec: {fileID: 0}
-  curSec: {fileID: 0}
 --- !u!137 &137298674973705092
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -14,7 +14,8 @@ public class UpdateCollider : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Debug.Log (childModel.transform.localPosition.y);
-		this.GetComponent<BoxCollider>().center = new Vector3(childModel.transform.localPosition.x, childModel.transform.localPosition.y + 1f, 
+		this.GetComponent<BoxCollider>().center = new Vector3(childModel.transform.localPosition.x, 
+                                                              1f, 
 															  childModel.transform.localPosition.z);
 	}
 }
