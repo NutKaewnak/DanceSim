@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
-  newPosition: {x: -7.071068, y: 0, z: 7.071068}
+  newPosition: {x: -7.071068, y: 0.5, z: 7.071068}
 --- !u!114 &114039266190848560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
-  newPosition: {x: 7.071068, y: 0, z: 7.071068}
+  newPosition: {x: 7.071068, y: 0.5, z: 7.071068}
 --- !u!114 &114309604504042756
 MonoBehaviour:
   m_ObjectHideFlags: 1

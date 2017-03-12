@@ -320,7 +320,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4073315845032588}
-  - component: {fileID: 95570894375028330}
+  - component: {fileID: 95591942013452614}
   m_Layer: 0
   m_Name: U_Character_REF Kinect combined
   m_TagString: Untagged
@@ -2656,7 +2656,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.45, y: 2, z: 0.24096271}
   m_Center: {x: 0, y: 1, z: 0.003502354}
---- !u!95 &95570894375028330
+--- !u!95 &95591942013452614
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -2684,7 +2684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f736089f85b89cb4ea95811ad32d0222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childModel: {fileID: 1225394741882308}
+  childModel: {fileID: 1531841548961824}
 --- !u!114 &114517640886409946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2696,7 +2696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d42f632f079b94e89e752f558df3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 1310231805077562}
 --- !u!137 &137298674973705092
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
