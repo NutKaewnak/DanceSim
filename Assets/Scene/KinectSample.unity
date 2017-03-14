@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 149529132}
   - component: {fileID: 149529131}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SimController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -498,6 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d4bbb4349d1e74b83b6ae51ad4dcbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTime: 0
 --- !u!4 &149529132
 Transform:
   m_ObjectHideFlags: 0
