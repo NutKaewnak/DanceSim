@@ -22,16 +22,18 @@ public class AnimController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		anim.PlayInFixedTime(0,-1,scroll.value*maxlenght);
-		Debug.Log ("Scroll Value: " + scroll.value);
 		currentTime();
 		maxTime();
-		//curSec.text=(scroll.value*maxlenght).ToString();
 	}
 
 	void currentTime(){
 		min = Mathf.Floor(scroll.value*maxlenght/60);
 		sec = (scroll.value*maxlenght)%60;
 		curSec.text = (min + "." + Mathf.RoundToInt(sec));
+
+		//send to Simcontroller
+		SimController.instance.currentTime = scroll.value*maxlenght;
+	
 	}
 	
 	void maxTime(){
