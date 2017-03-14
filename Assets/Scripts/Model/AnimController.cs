@@ -22,6 +22,7 @@ public class AnimController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		anim.PlayInFixedTime(0,-1,scroll.value*maxlenght);
+		Debug.Log ("Scroll Value: " + scroll.value);
 		currentTime();
 		maxTime();
 		//curSec.text=(scroll.value*maxlenght).ToString();
