@@ -29,7 +29,7 @@ public class AnimController : MonoBehaviour {
 		}
 	}
 
-	void currentTime(){
+	void currentTime () {
 		min = Mathf.Floor(scroll.value*maxlenght/60);
 		sec = (scroll.value*maxlenght)%60;
 		curSec.text = (min + "." + Mathf.RoundToInt(sec));
@@ -38,13 +38,13 @@ public class AnimController : MonoBehaviour {
 	
 	}
 	
-	void maxTime(){
+	void maxTime () {
 		mMin = Mathf.Floor(maxlenght/60);
 		mSec = (maxlenght)%60;
 		animlenght.text = (mMin + "." + Mathf.RoundToInt(mSec));
 	}
 
-	void play(){
+	void play () {
 		currentTimer = scroll.value * maxlenght;
 		currentTimer += Time.deltaTime;
 		scroll.value = currentTimer/maxlenght;

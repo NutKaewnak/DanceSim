@@ -8,6 +8,7 @@ public class SimController : MonoBehaviour {
 	public string state;
 	// Use this for initialization
 	void Start () {
+		state = "pause";
 		instance = this;
 	}
 	
