@@ -11,7 +11,10 @@ public class AudioController : MonoBehaviour {
 	}
 
 	void Update() {
-		
+
+		// Update current time
+		currentTime = SimController.instance.currentTime;
+
 		if (SimController.instance.state.Equals ("play")) {
 			if (!audioArr [0].isPlaying) {
 				audioArr [0].Play ();
@@ -19,13 +22,12 @@ public class AudioController : MonoBehaviour {
 		}
 
 		if (SimController.instance.state.Equals ("pause")) {
-			currentTime = SimController.instance.currentTime;
 			audioArr [0].time = currentTime;
 			audioArr [0].Stop ();
 		}
 
-//		Debug.Log ("currentTime: " + currentTime);
-//		Debug.Log ("audioTime: " + audioArr [0].time);
+		//Debug.Log ("currentTime: " + currentTime);
+		//Debug.Log ("audioTime: " + audioArr [0].time);
 
 	}
 }
