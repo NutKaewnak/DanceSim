@@ -66,7 +66,9 @@ public class SimController : MonoBehaviour {
 	}
 
 	public void setStatePause(){
-		state = "pause";
+		if(!state.Equals("standby")){
+			state = "pause";
+		}	
 	}
 
 	public void setStateStandBy(){

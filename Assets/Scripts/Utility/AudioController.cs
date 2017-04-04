@@ -22,7 +22,7 @@ public class AudioController : MonoBehaviour {
 			}
 		}
 
-		if (SimController.instance.state.Equals ("pause")) {
+		if (SimController.instance.state.Equals ("pause") || SimController.instance.state.Equals ("standby")) {
 			audioArr [0].time = currentTime;
 			audioArr [0].Stop ();
 		}
