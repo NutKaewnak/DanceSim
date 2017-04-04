@@ -13,7 +13,7 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	
 	// Update is called once per frame
 	void Update () {
-		
+//		Debug.Log (transform.position.x);
 	}
 
 	#region IBeginDragHandler implementation

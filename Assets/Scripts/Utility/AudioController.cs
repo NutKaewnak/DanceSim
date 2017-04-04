@@ -17,6 +17,7 @@ public class AudioController : MonoBehaviour {
 
 		if (SimController.instance.state.Equals ("play")) {
 			if (!audioArr [0].isPlaying) {
+				audioArr [0].time = currentTime;
 				audioArr [0].Play ();
 			}
 		}

@@ -28,6 +28,7 @@ public class SimController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		Debug.Log ("state: " + state);
 		currentTimeCounter();
 		maxTime();
 		stateCommand();
