@@ -43,12 +43,12 @@ public class KinectRecorder : MonoBehaviour {
 		}
 	}
 	
-	void StartRecord() {
+	public void StartRecord() {
 		isRecording = true;
 		Debug.Log("start recording");
 	}
 	
-	void StopRecord() {
+	public void StopRecord() {
 		isRecording = false;
 		//edit by lxjk
 		string filePath = outputFile+fileCount.ToString();
