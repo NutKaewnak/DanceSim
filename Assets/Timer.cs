@@ -16,8 +16,11 @@ public class Timer : MonoBehaviour {
 	}
 
 	void Update () {
-		Debug.Log(isStart);
-		if(isStart = true){
+		if(Input.GetKeyDown(KeyCode.F8)){
+			isStart=true;
+		}
+
+		if(isStart == true){
 			counter += Time.deltaTime;
 			floatToTime();
 		}
@@ -33,6 +36,7 @@ public class Timer : MonoBehaviour {
 	public void setStart(){
 		isStart = true;
 	}
+
 	public void setStop(){
 		isStart = false;
 	}
