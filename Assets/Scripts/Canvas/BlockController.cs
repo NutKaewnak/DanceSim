@@ -8,7 +8,7 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	//START X = 88, END X = 453
 	//4 units = 1 secs
 	//scaleX = 0.2 => 25 secs
-	const float pos_x = 70;
+	const float pos_x = 92;
 
 	float startTime;
 	float endTime;
@@ -23,12 +23,12 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
 	// Use this for initialization
 	void Start () {
-		transform.position = new Vector3(pos_x, transform.position.y, transform.position.z);
+//		transform.position = new Vector3(pos_x, transform.position.y, transform.position.z);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (this.GetComponent<RectTransform>().anchoredPosition.x);
+		Debug.Log (this.GetComponent<RectTransform>().sizeDelta.x);
 //		Debug.Log (pos_x);
 //		Debug.Log (Mathf.Floor(transform.position.x - pos_x));
 
@@ -58,7 +58,7 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	}
 
 	void updateStartTime () {
-		startTime = Mathf.Floor(transform.position.x - pos_x)/3.220293171196582f;
+		startTime = Mathf.Floor(this.GetComponent<RectTransform>().anchoredPosition.x - pos_x)*(30.59835f/160f);
 	}
 
 	void updateEndTime () {
