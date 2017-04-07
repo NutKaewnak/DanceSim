@@ -4,15 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SimController : MonoBehaviour {
+	
 	public static SimController instance;
 	public float currentTime;
 	public string state;
 
 	public Scrollbar scroll;
 	public float maxlenght = 120;
-	public float currentTimer = 0;
 	public Text animlenght;
 	public Text curSec;
+
+	float currentTimer = 0;
 
 	float min=0;
 	float sec=0;
@@ -22,8 +24,8 @@ public class SimController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		state = "standby";
 		instance = this;
+		state = "standby";
 	}
 
 	// Update is called once per frame
