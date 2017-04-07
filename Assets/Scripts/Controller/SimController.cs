@@ -22,8 +22,8 @@ public class SimController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		state = "standby";
 		instance = this;
+		state = "standby";
 	}
 
 	// Update is called once per frame

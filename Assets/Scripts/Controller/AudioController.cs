@@ -2,17 +2,20 @@
 using System.Collections;
 
 public class AudioController : MonoBehaviour {
+	
 	public static AudioController instance;
-	AudioSource[] audioArr;
 	public float currentTime;
+	public int currentIndex;
+
+	AudioSource[] audioArr;
 	float oldTIme;
 
-	void Start() {
+	void Start () {
 		instance = this;
 		audioArr = this.transform.GetComponentsInChildren<AudioSource> ();
 	}
 
-	void Update() {
+	void Update () {
 		// Update current time
 //		currentTime = SimController.instance.currentTime;
 //
@@ -43,7 +46,7 @@ public class AudioController : MonoBehaviour {
 	}
 
 	public void stop (int index) {
-		if (SimController.instance.state.Equals ("pause") || SimController.instance.state.Equals ("standby")) {
+		if (audioArr [index].isPlaying) {
 			audioArr [index].Stop ();
 		}
 	}

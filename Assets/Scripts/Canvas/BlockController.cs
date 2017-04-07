@@ -8,9 +8,10 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	//START X = 88, END X = 453
 	//4 units = 1 secs
 	//scaleX = 0.2 => 25 secs
-	const float pos_x = 72;
+	const float pos_x = 70;
 
 	float startTime;
+	float endTime;
 	float audioPlayTime;
 	float audioLength;
 	int audioIndex = 0;
@@ -27,14 +28,16 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	
 	// Update is called once per frame
 	void Update () {
-//		Debug.Log (transform.position.x);
+		Debug.Log (this.GetComponent<RectTransform>().anchoredPosition.x);
 //		Debug.Log (pos_x);
 //		Debug.Log (Mathf.Floor(transform.position.x - pos_x));
 
 		updateStartTime ();
+		updateEndTime ();
 		updateAudioLength ();
 		commandAudio ();
 		Debug.Log ("startTime: " + startTime);
+		Debug.Log ("endTime: " + endTime);
 		Debug.Log ("currentTime: " + SimController.instance.currentTime);
 //		Debug.Log (audioLength);
 //		Debug.Log (transform.position.x);
@@ -42,8 +45,15 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	}
 
 	void commandAudio () {
-		if (startTime <= SimController.instance.currentTime) {
-			AudioController.instance.playAtTime (audioIndex, audioPlayTime);
+		if (SimController.instance.state.Equals ("play")) {
+			if (startTime <= SimController.instance.currentTime) {
+				AudioController.instance.playAtTime (audioIndex, audioPlayTime);
+			}
+			if (endTime <= SimController.instance.currentTime) {
+				AudioController.instance.stop (audioIndex);
+			}
+		} else if (SimController.instance.state.Equals ("pause")) {
+			AudioController.instance.stop (audioIndex);
 		}
 	}
 
@@ -51,8 +61,12 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 		startTime = Mathf.Floor(transform.position.x - pos_x)/3.220293171196582f;
 	}
 
+	void updateEndTime () {
+		endTime = startTime + audioLength;
+	}
+
 	void updateAudioLength () {
-		audioLength = transform.localScale.x * (25/0.2f);
+		audioLength = transform.localScale.x * (10/0.2f);
 	}
 
 	void setPosition_X (float x) {
