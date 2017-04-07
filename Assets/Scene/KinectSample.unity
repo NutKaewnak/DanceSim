@@ -632,10 +632,8 @@ MonoBehaviour:
   state: 
   scroll: {fileID: 312715496}
   maxlenght: 120
-  currentTimer: 0
   animlenght: {fileID: 1329688800}
   curSec: {fileID: 1908198611}
-  pauseButton: {fileID: 0}
 --- !u!4 &149529132
 Transform:
   m_ObjectHideFlags: 0
@@ -3449,26 +3447,6 @@ Prefab:
     - target: {fileID: 1259934430035256, guid: 05158a99b12c9b04badec1e2eaa722a1, type: 2}
       propertyPath: m_Name
       value: AudioToolBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 224212235351940582, guid: 05158a99b12c9b04badec1e2eaa722a1,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 92.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224212235351940582, guid: 05158a99b12c9b04badec1e2eaa722a1,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 621.5995
-      objectReference: {fileID: 0}
-    - target: {fileID: 224212235351940582, guid: 05158a99b12c9b04badec1e2eaa722a1,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224212235351940582, guid: 05158a99b12c9b04badec1e2eaa722a1,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05158a99b12c9b04badec1e2eaa722a1, type: 2}
