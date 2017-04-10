@@ -1043,6 +1043,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 777907127}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &345640593
@@ -1422,7 +1433,7 @@ Prefab:
     - target: {fileID: 224476058872453416, guid: 495405bb08ea5b8439591136d1b328af,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224476058872453416, guid: 495405bb08ea5b8439591136d1b328af,
         type: 2}
@@ -1456,22 +1467,22 @@ Prefab:
     - target: {fileID: 224816740964995598, guid: 495405bb08ea5b8439591136d1b328af,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -210
+      value: -305.5
       objectReference: {fileID: 0}
     - target: {fileID: 224816740964995598, guid: 495405bb08ea5b8439591136d1b328af,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -22
+      value: -16.4
       objectReference: {fileID: 0}
     - target: {fileID: 224581469033419908, guid: 495405bb08ea5b8439591136d1b328af,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 354
+      value: 369
       objectReference: {fileID: 0}
     - target: {fileID: 224581469033419908, guid: 495405bb08ea5b8439591136d1b328af,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -21
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 114520889966125794, guid: 495405bb08ea5b8439591136d1b328af,
         type: 2}
@@ -1534,6 +1545,16 @@ Prefab:
     - target: {fileID: 1901646581483814, guid: 495405bb08ea5b8439591136d1b328af, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224816740964995598, guid: 495405bb08ea5b8439591136d1b328af,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 29.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 224816740964995598, guid: 495405bb08ea5b8439591136d1b328af,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 15.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 495405bb08ea5b8439591136d1b328af, type: 2}
@@ -1942,7 +1963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &777907127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2152,6 +2173,7 @@ GameObject:
   - component: {fileID: 1029714527}
   - component: {fileID: 1029714526}
   - component: {fileID: 1029714525}
+  - component: {fileID: 1029714528}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -2217,8 +2239,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1029714525}
-        m_MethodName: Select
+      - m_Target: {fileID: 149529131}
+        m_MethodName: setStatePause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2228,8 +2250,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1029714523}
-        m_MethodName: SetActive
+      - m_Target: {fileID: 777907127}
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2238,17 +2260,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 345640590}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -2285,6 +2296,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1029714523}
+--- !u!114 &1029714528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1029714523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbe53a096157524c9a4100d5cdd0011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 1029714525}
+  pausingButton: {fileID: 345640592}
+  stanbyButton: {fileID: 777907127}
 --- !u!1 &1085091952
 GameObject:
   m_ObjectHideFlags: 0
