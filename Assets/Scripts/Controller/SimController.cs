@@ -16,10 +16,10 @@ public class SimController : MonoBehaviour {
 
 	float currentTimer = 0;
 
-	float min=0;
-	float sec=0;
-	float mMin=0;
-	float mSec=0;
+	float min = 0;
+	float sec = 0;
+	float mMin = 0;
+	float mSec = 0;
 
 
 	// Use this for initialization
