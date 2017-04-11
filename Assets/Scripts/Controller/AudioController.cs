@@ -4,8 +4,11 @@ using System.Collections;
 public class AudioController : MonoBehaviour {
 	
 	public static AudioController instance;
-	public float currentTime;
-	public int currentIndex;
+
+	[SerializeField]
+	private float currentTime;
+	[SerializeField]
+	private int currentIndex;
 
 	AudioSource[] audioArr;
 	float oldTIme;

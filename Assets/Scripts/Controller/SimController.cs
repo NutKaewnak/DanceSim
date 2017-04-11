@@ -31,16 +31,16 @@ public class SimController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 //		Debug.Log ("state: " + state);
-		currentTimeCounter();
-		maxTime();
-		stateCommand();
+		currentTimeCounter ();
+		maxTime ();
+		stateCommand ();
 	}
 
 	void currentTimeCounter () {
-		min = Mathf.Floor(scroll.value*maxlenght/60);
-		sec = (scroll.value*maxlenght)%60;
+		min = Mathf.Floor(scroll.value*maxlenght / 60);
+		sec = (scroll.value * maxlenght) % 60;
 		curSec.text = (min + "." + Mathf.RoundToInt(sec));
-		currentTime = scroll.value*maxlenght;
+		currentTime = scroll.value * maxlenght;
 	}
 
 	void maxTime () {
@@ -52,7 +52,7 @@ public class SimController : MonoBehaviour {
 	void play () {
 		currentTimer = scroll.value * maxlenght;
 		currentTimer += Time.deltaTime;
-		scroll.value = currentTimer/maxlenght;
+		scroll.value = currentTimer / maxlenght;
 	}
 
 	void stateCommand () {
