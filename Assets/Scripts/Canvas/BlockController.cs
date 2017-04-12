@@ -12,7 +12,7 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
 	float startTime;
 	float endTime;
-	float audioPlayTime;
+//	float audioPlayTime;
 	float audioLength;
 	int audioIndex = 0;
 
@@ -28,7 +28,7 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (this.GetComponent<RectTransform>().sizeDelta.x);
+//		Debug.Log (this.GetComponent<RectTransform>().sizeDelta.x);
 //		Debug.Log (pos_x);
 //		Debug.Log (Mathf.Floor(transform.position.x - pos_x));
 
@@ -36,23 +36,23 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 		updateEndTime ();
 		updateAudioLength ();
 		commandAudio ();
-//		Debug.Log ("startTime: " + startTime);
+		Debug.Log ("startTime: " + startTime);
 //		Debug.Log ("endTime: " + endTime);
 //		Debug.Log ("currentTime: " + SimController.instance.currentTime);
-		Debug.Log (audioLength);
+//		Debug.Log (audioLength);
 //		Debug.Log (transform.position.x);
 //		Debug.Log (transform.localScale.x);
 	}
 
 	void commandAudio () {
-		if (SimController.instance.state.Equals ("play")) {
-			if (startTime <= SimController.instance.currentTime) {
-				AudioController.instance.playAtTime (audioIndex, (SimController.instance.currentTime - startTime));
+		if (SimController.instance.isStatePlay()) {
+			if (startTime <= SimController.instance.getCurrentTime()) {
+				AudioController.instance.playAtTime (audioIndex, (SimController.instance.getCurrentTime() - startTime));
 			}
-			if (endTime <= SimController.instance.currentTime) {
+			if (endTime <= SimController.instance.getCurrentTime()) {
 				AudioController.instance.stop (audioIndex);
 			}
-		} else if (SimController.instance.state.Equals ("pause")) {
+		} else if (SimController.instance.isStatePause()) {
 			AudioController.instance.stop (audioIndex);
 		}
 	}
@@ -75,20 +75,26 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
 	#region IBeginDragHandler implementation
 	public void OnBeginDrag (PointerEventData eventData) {
-		itemBeingDragged = gameObject;
-		startPosition = transform.position;
+		if (!SimController.instance.isStatePlay ()) {
+			itemBeingDragged = gameObject;
+			startPosition = transform.position;
+		}
 	}
 	#endregion
 
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
-		transform.position = new Vector3(Input.mousePosition.x, transform.position.y, 0);
+		if (!SimController.instance.isStatePlay ()) {
+			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
+		}
 	}
 	#endregion
 
 	#region IEndDragHandler implementation
 	public void OnEndDrag (PointerEventData eventData) {
-		itemBeingDragged = null;
+		if (!SimController.instance.isStatePlay ()) {
+			itemBeingDragged = null;
+		}
 	}
 	#endregion
 }

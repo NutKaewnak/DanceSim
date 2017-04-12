@@ -39,7 +39,7 @@ public class AudioController : MonoBehaviour {
 	}
 
 	public void playAtTime (int index, float time) {
-		if (SimController.instance.state.Equals ("play")) {
+		if (SimController.instance.isStatePlay()) {
 			if (!audioArr [index].isPlaying) {
 				Debug.Log ("play");
 				audioArr [index].time = time;

@@ -17,7 +17,7 @@ public class TimelineController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
 	#region IBeginDragHandler implementation
 	public void OnBeginDrag (PointerEventData eventData) {
-		if (!SimController.instance.state.Equals("standby")) {
+		if (!SimController.instance.isStateStandby()) {
 			SimController.instance.setStatePause ();
 		}
 	}
@@ -25,7 +25,7 @@ public class TimelineController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
 	#region IEndDragHandler implementation
 	public void OnEndDrag (PointerEventData eventData) {
-		if (!SimController.instance.state.Equals("standby")) {
+		if (!SimController.instance.isStateStandby()) {
 			SimController.instance.setStatePlay ();
 		}
 	}
