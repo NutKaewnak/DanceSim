@@ -8,11 +8,11 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	//START X = 88, END X = 453
 	//4 units = 1 secs
 	//scaleX = 0.2 => 25 secs
-	const float pos_x = 92;
+	const float pos_x = 90.2f;
 
 	float startTime;
 	float endTime;
-	float audioPlayTime;
+//	float audioPlayTime;
 	float audioLength;
 	int audioIndex = 0;
 
@@ -28,7 +28,7 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (this.GetComponent<RectTransform>().sizeDelta.x);
+//		Debug.Log (this.GetComponent<RectTransform>().sizeDelta.x);
 //		Debug.Log (pos_x);
 //		Debug.Log (Mathf.Floor(transform.position.x - pos_x));
 
@@ -37,22 +37,22 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 		updateAudioLength ();
 		commandAudio ();
 		Debug.Log ("startTime: " + startTime);
-		Debug.Log ("endTime: " + endTime);
-		Debug.Log ("currentTime: " + SimController.instance.currentTime);
+//		Debug.Log ("endTime: " + endTime);
+//		Debug.Log ("currentTime: " + SimController.instance.currentTime);
 //		Debug.Log (audioLength);
 //		Debug.Log (transform.position.x);
 //		Debug.Log (transform.localScale.x);
 	}
 
 	void commandAudio () {
-		if (SimController.instance.state.Equals ("play")) {
-			if (startTime <= SimController.instance.currentTime) {
-				AudioController.instance.playAtTime (audioIndex, audioPlayTime);
+		if (SimController.instance.isStatePlay()) {
+			if (startTime <= SimController.instance.getCurrentTime()) {
+				AudioController.instance.playAtTime (audioIndex, (SimController.instance.getCurrentTime() - startTime));
 			}
-			if (endTime <= SimController.instance.currentTime) {
+			if (endTime <= SimController.instance.getCurrentTime()) {
 				AudioController.instance.stop (audioIndex);
 			}
-		} else if (SimController.instance.state.Equals ("pause")) {
+		} else if (SimController.instance.isStatePause()) {
 			AudioController.instance.stop (audioIndex);
 		}
 	}
@@ -66,29 +66,35 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	}
 
 	void updateAudioLength () {
-		audioLength = transform.localScale.x * (10/0.2f);
+		audioLength = this.GetComponent<RectTransform>().sizeDelta.x * (22.68017f/621.5995f);
 	}
 
 	void setPosition_X (float x) {
 		transform.position = new Vector3(x, transform.position.y, transform.position.z);
 	}
-		
+
 	#region IBeginDragHandler implementation
 	public void OnBeginDrag (PointerEventData eventData) {
-		itemBeingDragged = gameObject;
-		startPosition = transform.position;
+		if (!SimController.instance.isStatePlay ()) {
+			itemBeingDragged = gameObject;
+			startPosition = transform.position;
+		}
 	}
 	#endregion
 
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
-		transform.position = new Vector3(Input.mousePosition.x, transform.position.y, 0);
+		if (!SimController.instance.isStatePlay ()) {
+			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
+		}
 	}
 	#endregion
 
 	#region IEndDragHandler implementation
 	public void OnEndDrag (PointerEventData eventData) {
-		itemBeingDragged = null;
+		if (!SimController.instance.isStatePlay ()) {
+			itemBeingDragged = null;
+		}
 	}
 	#endregion
 }

@@ -14,6 +14,6 @@ public class AnimController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		anim.PlayInFixedTime (0, -1, SimController.instance.currentTime);
+		anim.PlayInFixedTime (0, -1, SimController.instance.getCurrentTime());
 	}
 }

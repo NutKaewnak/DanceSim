@@ -4,8 +4,11 @@ using System.Collections;
 public class AudioController : MonoBehaviour {
 	
 	public static AudioController instance;
-	public float currentTime;
-	public int currentIndex;
+
+	[SerializeField]
+	private float currentTime;
+	[SerializeField]
+	private int currentIndex;
 
 	AudioSource[] audioArr;
 	float oldTIme;
@@ -36,7 +39,7 @@ public class AudioController : MonoBehaviour {
 	}
 
 	public void playAtTime (int index, float time) {
-		if (SimController.instance.state.Equals ("play")) {
+		if (SimController.instance.isStatePlay()) {
 			if (!audioArr [index].isPlaying) {
 				Debug.Log ("play");
 				audioArr [index].time = time;
