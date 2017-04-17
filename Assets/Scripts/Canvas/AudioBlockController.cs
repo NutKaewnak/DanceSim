@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class AudioBlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-	//START X = 88, END X = 453
-	//4 units = 1 secs
-	//scaleX = 0.2 => 25 secs
+	/* 1 unit : 1 sec */
 //	public RectTransform handle;
 //	public RectTransform slidingArea;
-	const float pos_x = 90.2f;
-
+	public RectTransform handle;
 	float startTime;
 	float endTime;
 //	float audioPlayTime;
@@ -35,14 +32,16 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 //		Debug.Log (Mathf.Floor(transform.position.x - pos_x));
 //		Debug.Log("handle: " + handle.transform.localPosition.x);
 //		Debug.Log ("sliding: " + slidingArea.sizeDelta);
+
 		updateStartTime ();
-		updateEndTime ();
 		updateAudioLength ();
+		updateEndTime ();
 		commandAudio ();
+		Debug.Log(handle.anchoredPosition.x);
 		Debug.Log ("startTime: " + startTime);
 		Debug.Log ("endTime: " + endTime);
 //		Debug.Log ("currentTime: " + SimController.instance.currentTime);
-//		Debug.Log (audioLength);
+		Debug.Log (audioLength);
 //		Debug.Log (transform.position.x);
 //		Debug.Log (transform.localScale.x);
 	}
@@ -61,7 +60,7 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	}
 
 	void updateStartTime () {
-		startTime = Mathf.Floor(this.GetComponent<RectTransform>().anchoredPosition.x - pos_x)*(30.59835f/160f);
+		startTime = this.GetComponent<RectTransform>().anchoredPosition.x;
 	}
 
 	void updateEndTime () {
@@ -69,11 +68,7 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	}
 
 	void updateAudioLength () {
-		audioLength = this.GetComponent<RectTransform>().sizeDelta.x * (22.68017f/621.5995f);
-	}
-
-	void setPosition_X (float x) {
-		transform.position = new Vector3(x, transform.position.y, transform.position.z);
+		audioLength = this.GetComponent<RectTransform>().sizeDelta.x;
 	}
 
 	#region IBeginDragHandler implementation
