@@ -8,6 +8,8 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	//START X = 88, END X = 453
 	//4 units = 1 secs
 	//scaleX = 0.2 => 25 secs
+//	public RectTransform handle;
+//	public RectTransform slidingArea;
 	const float pos_x = 90.2f;
 
 	float startTime;
@@ -31,13 +33,14 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 //		Debug.Log (this.GetComponent<RectTransform>().sizeDelta.x);
 //		Debug.Log (pos_x);
 //		Debug.Log (Mathf.Floor(transform.position.x - pos_x));
-
+//		Debug.Log("handle: " + handle.transform.localPosition.x);
+//		Debug.Log ("sliding: " + slidingArea.sizeDelta);
 		updateStartTime ();
 		updateEndTime ();
 		updateAudioLength ();
 		commandAudio ();
 		Debug.Log ("startTime: " + startTime);
-//		Debug.Log ("endTime: " + endTime);
+		Debug.Log ("endTime: " + endTime);
 //		Debug.Log ("currentTime: " + SimController.instance.currentTime);
 //		Debug.Log (audioLength);
 //		Debug.Log (transform.position.x);
