@@ -38,7 +38,7 @@ public class BlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 		updateStartTime ();
 		updateEndTime ();
 		updateAudioLength ();
-		commandAudio ();
+//		commandAudio ();
 		Debug.Log ("startTime: " + startTime);
 		Debug.Log ("endTime: " + endTime);
 //		Debug.Log ("currentTime: " + SimController.instance.currentTime);
