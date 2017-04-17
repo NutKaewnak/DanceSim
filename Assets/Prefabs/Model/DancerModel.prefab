@@ -336,8 +336,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4073315845032588}
-  - component: {fileID: 95461063536155958}
   - component: {fileID: 114406705220596338}
+  - component: {fileID: 95766233988672232}
   m_Layer: 0
   m_Name: U_Character_REF Kinect combined
   m_TagString: Untagged
@@ -432,7 +432,6 @@ GameObject:
   - component: {fileID: 65183835521072142}
   - component: {fileID: 54192105007799592}
   - component: {fileID: 114517640886409946}
-  - component: {fileID: 114476622868211392}
   m_Layer: 0
   m_Name: DancerModel
   m_TagString: Untagged
@@ -2601,7 +2600,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1310231805077562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4073315845032588}
@@ -2741,7 +2740,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.09, z: 0.35}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95461063536155958
+--- !u!95 &95766233988672232
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -2769,18 +2768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d4074edc958e74f9e1f503c4c54f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114476622868211392
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310231805077562}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f736089f85b89cb4ea95811ad32d0222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  childModel: {fileID: 1225394741882308}
 --- !u!114 &114517640886409946
 MonoBehaviour:
   m_ObjectHideFlags: 1
