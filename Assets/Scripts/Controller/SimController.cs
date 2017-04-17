@@ -14,7 +14,7 @@ public class SimController : MonoBehaviour {
 	[SerializeField]
 	private Scrollbar scroll;
 	[SerializeField]
-	private float maxlenght = 120;
+	private float maxlenght = 1800;
 	[SerializeField]
 	private Text animlenght;
 	[SerializeField]
