@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1818071691995242}
+  m_RootGameObject: {fileID: 1240628584167926}
   m_IsPrefabParent: 1
---- !u!1 &1818071691995242
+--- !u!1 &1240628584167926
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4913052764691408}
-  - component: {fileID: 114601807322672800}
+  - component: {fileID: 4328985689464178}
+  - component: {fileID: 114029707419166332}
   m_Layer: 0
   m_Name: SimController
   m_TagString: Untagged
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4913052764691408
+--- !u!4 &4328985689464178
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1818071691995242}
+  m_GameObject: {fileID: 1240628584167926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 244.50897, y: 119.557655, z: 45.2157}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,12 +40,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114601807322672800
+--- !u!114 &114029707419166332
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1818071691995242}
+  m_GameObject: {fileID: 1240628584167926}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98d4bbb4349d1e74b83b6ae51ad4dcbc, type: 3}
@@ -55,6 +55,5 @@ MonoBehaviour:
   state: 
   scroll: {fileID: 0}
   maxlenght: 120
-  currentTimer: 0
   animlenght: {fileID: 0}
   curSec: {fileID: 0}
