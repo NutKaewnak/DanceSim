@@ -6,14 +6,10 @@ using UnityEngine.EventSystems;
 public class AudioBlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
 	/* 1 unit : 1 sec */
-//	public RectTransform handle;
-//	public RectTransform slidingArea;
-	public RectTransform handle;
-	float startTime;
-	float endTime;
-//	float audioPlayTime;
-	float audioLength;
-	int audioIndex = 0;
+	[SerializeField] private float startTime;
+	[SerializeField] private float endTime;
+	[SerializeField] private float audioLength;
+	[SerializeField] private int audioIndex = 0;
 
 //	public float scale_x = 0.2f;
 
@@ -27,23 +23,12 @@ public class AudioBlockController : MonoBehaviour, IBeginDragHandler, IDragHandl
 	
 	// Update is called once per frame
 	void Update () {
-//		Debug.Log (this.GetComponent<RectTransform>().sizeDelta.x);
-//		Debug.Log (pos_x);
-//		Debug.Log (Mathf.Floor(transform.position.x - pos_x));
-//		Debug.Log("handle: " + handle.transform.localPosition.x);
-//		Debug.Log ("sliding: " + slidingArea.sizeDelta);
-
 		updateStartTime ();
 		updateAudioLength ();
 		updateEndTime ();
 		commandAudio ();
-		Debug.Log(handle.anchoredPosition.x);
-		Debug.Log ("startTime: " + startTime);
-		Debug.Log ("endTime: " + endTime);
-//		Debug.Log ("currentTime: " + SimController.instance.currentTime);
-		Debug.Log (audioLength);
-//		Debug.Log (transform.position.x);
-//		Debug.Log (transform.localScale.x);
+//		Debug.Log ("startTime: " + startTime);
+//		Debug.Log ("endTime: " + endTime);
 	}
 
 	void commandAudio () {
