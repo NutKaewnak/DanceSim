@@ -14,11 +14,13 @@ public class SimController : MonoBehaviour {
 	[SerializeField]
 	private Scrollbar scroll;
 	[SerializeField]
-	private float maxlenght = 1800;
+	private float maxlenght = 900;
 	[SerializeField]
 	private Text animlenght;
 	[SerializeField]
 	private Text curSec;
+	[SerializeField]
+	private GameObject ruler;
 
 	float currentTimer = 0;
 	float min = 0;
@@ -26,11 +28,13 @@ public class SimController : MonoBehaviour {
 	float mMin = 0;
 	float mSec = 0;
 
+	
 
 	// Use this for initialization
 	void Start () {
 		instance = this;
 		state = "standby";
+
 	}
 
 	// Update is called once per frame
@@ -39,6 +43,7 @@ public class SimController : MonoBehaviour {
 		currentTimeCounter ();
 		maxTime ();
 		stateCommand ();
+		rulerScaler ();
 	}
 
 	void currentTimeCounter () {
@@ -63,6 +68,25 @@ public class SimController : MonoBehaviour {
 	void stateCommand () {
 		if (state.Equals("play")) {
 			play();
+		}
+	}
+
+	void rulerScaler (){
+		Vector3 moveRuler = ruler.transform.position;
+		Vector3 moveScoll = scroll.transform.position;
+
+		// move at 7 min
+		if(scroll.value*maxlenght>=420){
+			moveRuler.x =-840;
+			moveScoll.x =-849;
+			scroll.transform.position = moveScoll;
+			ruler.transform.position = moveRuler;
+		}
+		if(scroll.value*maxlenght<420){
+			moveRuler.x =0;
+			moveScoll.x =-9;
+			scroll.transform.position = moveScoll;
+			ruler.transform.position = moveRuler;
 		}
 	}
 
