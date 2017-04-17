@@ -2355,7 +2355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -9.049988, y: -48}
+  m_AnchoredPosition: {x: -9, y: -48}
   m_SizeDelta: {x: 3600, y: 10}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &2071991291
@@ -2490,6 +2490,11 @@ Prefab:
       propertyPath: maxlenght
       value: 900
       objectReference: {fileID: 0}
+    - target: {fileID: 114029707419166332, guid: 305fddd193617824ba4e817599e9a098,
+        type: 2}
+      propertyPath: ruler
+      value: 
+      objectReference: {fileID: 341738833}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 305fddd193617824ba4e817599e9a098, type: 2}
   m_IsPrefabParent: 0
