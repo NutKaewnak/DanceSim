@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ChoreographBlockManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 
 	/* 1 unit : 1 sec */
 	[SerializeField] private float motionStartTime;
 	[SerializeField] private string motionName;
 	[SerializeField] private float handleStart, handleEnd;
-
-	public static GameObject itemBeingDragged;
-	Vector3 startPosition;
 
 	void Start () {
 		motionStartTime = 0;
@@ -51,27 +48,10 @@ public class ChoreographBlockManager : MonoBehaviour, IBeginDragHandler, IDragHa
 		}
 	}
 
-	#region IBeginDragHandler implementation
-	public void OnBeginDrag (PointerEventData eventData) {
-		if (!SimController.instance.isStatePlay ()) {
-			itemBeingDragged = gameObject;
-			startPosition = transform.position;
-		}
-	}
-	#endregion
-
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {
 			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
-		}
-	}
-	#endregion
-
-	#region IEndDragHandler implementation
-	public void OnEndDrag (PointerEventData eventData) {
-		if (!SimController.instance.isStatePlay ()) {
-			itemBeingDragged = null;
 		}
 	}
 	#endregion
