@@ -5,6 +5,10 @@ using UnityEngine;
 public class sceneController : MonoBehaviour {
 
 	   public void BackToEditor() {
-        Application.LoadLevel("KinectSample");
+        Application.LoadLevel("Editor (new)");
     }
+
+    	public void goToRecordScene(){
+    		Application.LoadLevel("RecordScene");
+    	}
 }
