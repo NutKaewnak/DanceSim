@@ -25,7 +25,6 @@ public class ChoreographController : MonoBehaviour {
 	}
 
 	public float getMotionLengthByName (string motionName, int index) {
-		Debug.Log (motionName);
 		foreach (AnimationClip ac in modelAnimatorArr [index].runtimeAnimatorController.animationClips) {
 			if (motionName.Equals (ac.name)) {
 				return ac.length;

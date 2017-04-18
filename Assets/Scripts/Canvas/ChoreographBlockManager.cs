@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ChoreographBlockManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 
 	/* 1 unit : 1 sec */
 	[SerializeField] private float motionStartTime;
-	[SerializeField] private float motionLength;
 	[SerializeField] private string motionName;
 	[SerializeField] private float handleStart, handleEnd;
-
-	public static GameObject itemBeingDragged;
-	Vector3 startPosition;
 
 	void Start () {
 		motionStartTime = 0;
@@ -26,12 +22,8 @@ public class ChoreographBlockManager : MonoBehaviour, IBeginDragHandler, IDragHa
 	void Update () {
 		updateHandleStartTime ();
 		updateHandleEndTime ();
-		updateAudioLength ();
+		updatePosition ();
 		commandMotion ();
-	}
-
-	void commandMotion () {
-		ChoreographController.instance.playMotion (motionName, SimController.instance.getCurrentTime () - handleStart + motionStartTime);
 	}
 
 	void updateHandleStartTime () {
@@ -42,31 +34,24 @@ public class ChoreographBlockManager : MonoBehaviour, IBeginDragHandler, IDragHa
 		handleEnd = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x / 2;
 	}
 
-	void updateAudioLength () {
-		motionLength = this.GetComponent<RectTransform>().sizeDelta.x;
-	}
-
-	#region IBeginDragHandler implementation
-	public void OnBeginDrag (PointerEventData eventData) {
-		if (!SimController.instance.isStatePlay ()) {
-			itemBeingDragged = gameObject;
-			startPosition = transform.position;
+	void updatePosition () {
+		if (this.GetComponent<RectTransform> ().anchoredPosition.x < 0f) {
+			this.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0f, 0f);
+		} else if (this.GetComponent<RectTransform> ().anchoredPosition.x > 960f - this.GetComponent<RectTransform> ().sizeDelta.x * 2) {
+			this.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (960f - this.GetComponent<RectTransform> ().sizeDelta.x * 2, 0f);
 		}
 	}
-	#endregion
+
+	void commandMotion () {
+		if (handleStart >= 0f) {
+			ChoreographController.instance.playMotion (motionName, SimController.instance.getCurrentTime () - handleStart + motionStartTime);
+		}
+	}
 
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {
 			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
-		}
-	}
-	#endregion
-
-	#region IEndDragHandler implementation
-	public void OnEndDrag (PointerEventData eventData) {
-		if (!SimController.instance.isStatePlay ()) {
-			itemBeingDragged = null;
 		}
 	}
 	#endregion
