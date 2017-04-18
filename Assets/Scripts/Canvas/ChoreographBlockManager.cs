@@ -6,36 +6,40 @@ using UnityEngine.EventSystems;
 public class ChoreographBlockManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
 	/* 1 unit : 1 sec */
-	[SerializeField] private float startTime;
-	[SerializeField] private float endTime;
+	[SerializeField] private float motionStartTime;
 	[SerializeField] private float motionLength;
 	[SerializeField] private string motionName;
+	[SerializeField] private float handleStart, handleEnd;
 
 	public static GameObject itemBeingDragged;
 	Vector3 startPosition;
 
 	void Start () {
-		startTime = 0;
+		motionStartTime = 0;
+		Invoke ("test", 0.3f);
+	}
+
+	void test () {
 		this.GetComponent<RectTransform>().sizeDelta = new Vector2 (ChoreographController.instance.getMotionLengthByName (motionName, 0), 70.69f);
 	}
 		
 	void Update () {
-//		updateStartTime ();
+		updateHandleStartTime ();
+		updateHandleEndTime ();
 		updateAudioLength ();
-		updateEndTime ();
 		commandMotion ();
 	}
 
 	void commandMotion () {
-		ChoreographController.instance.playMotion (motionName, SimController.instance.getCurrentTime ());
+		ChoreographController.instance.playMotion (motionName, SimController.instance.getCurrentTime () - handleStart + motionStartTime);
 	}
 
-//	void updateStartTime () {
-//		startTime = this.GetComponent<RectTransform>().anchoredPosition.x;
-//	}
+	void updateHandleStartTime () {
+		handleStart = this.GetComponent<RectTransform>().anchoredPosition.x / 2;
+	}
 
-	void updateEndTime () {
-		endTime = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x;
+	void updateHandleEndTime () {
+		handleEnd = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x / 2;
 	}
 
 	void updateAudioLength () {
