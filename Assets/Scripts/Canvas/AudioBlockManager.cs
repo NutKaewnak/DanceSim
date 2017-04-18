@@ -17,7 +17,7 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 	
     void initiate () {
 		this.GetComponent<RectTransform>().sizeDelta = new Vector2(AudioController.instance.getAudioLengthByIndex(audioIndex), 70.69f);
-		this.GetComponent<RectTransform>().sizeDelta = new Vector2(20f, 70f);
+		// this.GetComponent<RectTransform>().sizeDelta = new Vector2(20f, 70f);
     }
 
 	void Update () {
