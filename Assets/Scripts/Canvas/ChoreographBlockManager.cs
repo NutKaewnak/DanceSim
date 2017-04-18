@@ -7,7 +7,6 @@ public class ChoreographBlockManager : MonoBehaviour, IBeginDragHandler, IDragHa
 
 	/* 1 unit : 1 sec */
 	[SerializeField] private float motionStartTime;
-	[SerializeField] private float motionLength;
 	[SerializeField] private string motionName;
 	[SerializeField] private float handleStart, handleEnd;
 
@@ -26,12 +25,8 @@ public class ChoreographBlockManager : MonoBehaviour, IBeginDragHandler, IDragHa
 	void Update () {
 		updateHandleStartTime ();
 		updateHandleEndTime ();
-		updateAudioLength ();
+		updatePosition ();
 		commandMotion ();
-	}
-
-	void commandMotion () {
-		ChoreographController.instance.playMotion (motionName, SimController.instance.getCurrentTime () - handleStart + motionStartTime);
 	}
 
 	void updateHandleStartTime () {
@@ -42,8 +37,18 @@ public class ChoreographBlockManager : MonoBehaviour, IBeginDragHandler, IDragHa
 		handleEnd = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x / 2;
 	}
 
-	void updateAudioLength () {
-		motionLength = this.GetComponent<RectTransform>().sizeDelta.x;
+	void updatePosition () {
+		if (this.GetComponent<RectTransform> ().anchoredPosition.x < 0f) {
+			this.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0f, 0f);
+		} else if (this.GetComponent<RectTransform> ().anchoredPosition.x > 960f - this.GetComponent<RectTransform> ().sizeDelta.x * 2) {
+			this.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (960f - this.GetComponent<RectTransform> ().sizeDelta.x * 2, 0f);
+		}
+	}
+
+	void commandMotion () {
+		if (handleStart >= 0f) {
+			ChoreographController.instance.playMotion (motionName, SimController.instance.getCurrentTime () - handleStart + motionStartTime);
+		}
 	}
 
 	#region IBeginDragHandler implementation

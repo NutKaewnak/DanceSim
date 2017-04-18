@@ -22,13 +22,31 @@ public class AudioBlockManager : MonoBehaviour, IBeginDragHandler, IDragHandler,
 	
     void initiate () {
         this.GetComponent<RectTransform>().sizeDelta = new Vector2(AudioController.instance.getAudioLengthByIndex(0), 70.69f);
+		this.GetComponent<RectTransform>().sizeDelta = new Vector2(20f, 70f);
     }
 	// Update is called once per frame
 	void Update () {
-		updateHandleStart();
+		updateHandleStart ();
 		updateHandleEndTime ();
+		updatePosition ();
 		commandAudio ();
 //		Debug.Log ("endTime: " + endTime);
+	}
+
+	void updateHandleStart () {
+		handleStart = this.GetComponent<RectTransform> ().anchoredPosition.x / 2;
+	}
+
+	void updateHandleEndTime () {
+		handleEnd = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x / 2;
+	}
+
+	void updatePosition () {
+		if (this.GetComponent<RectTransform> ().anchoredPosition.x < 0f) {
+			this.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0f, 0f);
+		} else if (this.GetComponent<RectTransform> ().anchoredPosition.x > 960f - this.GetComponent<RectTransform> ().sizeDelta.x * 2) {
+			this.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (960f - this.GetComponent<RectTransform> ().sizeDelta.x * 2, 0f);
+		}
 	}
 
 	void commandAudio () {
@@ -47,14 +65,6 @@ public class AudioBlockManager : MonoBehaviour, IBeginDragHandler, IDragHandler,
 //	void updateStartTime () {
 //		startTime = this.GetComponent<RectTransform>().anchoredPosition.x;
 //	}
-
-	void updateHandleStart () {
-		handleStart = this.GetComponent<RectTransform> ().anchoredPosition.x / 2;
-	}
-
-	void updateHandleEndTime () {
-		handleEnd = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x / 2;
-	}
 
 	#region IBeginDragHandler implementation
 	public void OnBeginDrag (PointerEventData eventData) {
