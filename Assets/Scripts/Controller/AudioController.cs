@@ -22,7 +22,7 @@ public class AudioController : MonoBehaviour {
 				Debug.Log ("currentTime: " + SimController.instance.getCurrentTime ());
 				Debug.Log ("time: " + time);
 				Debug.Log (Mathf.Min (time, audioArr [index].clip.length - 0.01f));
-				audioArr [index].time = time;
+				audioArr [index].time = Mathf.Min (time, audioArr [index].clip.length - 0.01f);
 				audioArr [index].Play ();
 			}
 		}
@@ -33,4 +33,9 @@ public class AudioController : MonoBehaviour {
 			audioArr [index].Stop ();
 		}
 	}
+
+	public float getAudioLengthByIndex (int index) {
+		return audioArr [index].clip.length;
+	}
+
 }

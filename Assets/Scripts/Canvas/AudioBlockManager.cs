@@ -6,10 +6,9 @@ using UnityEngine.EventSystems;
 public class AudioBlockManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
 	/* 1 unit : 1 sec */
-	[SerializeField] private float startTime;
-	[SerializeField] private float endTime;
-	[SerializeField] private float audioLength;
+	[SerializeField] private float audioStartTime;
 	[SerializeField] private int audioIndex = 0;
+	[SerializeField] private float handleStart, handleEnd;
 
 	public static GameObject itemBeingDragged;
 	Vector3 startPosition;
@@ -17,41 +16,44 @@ public class AudioBlockManager : MonoBehaviour, IBeginDragHandler, IDragHandler,
 	// Use this for initialization
 	void Start () {
 //		transform.position = new Vector3(pos_x, transform.position.y, transform.position.z);
+		audioStartTime = 0;
+        Invoke("initiate", 0.3f);
 	}
 	
+    void initiate () {
+        this.GetComponent<RectTransform>().sizeDelta = new Vector2(AudioController.instance.getAudioLengthByIndex(0), 70.69f);
+    }
 	// Update is called once per frame
 	void Update () {
-		updateStartTime ();
-		updateAudioLength ();
-		updateEndTime ();
+		updateHandleStart();
+		updateHandleEndTime ();
 		commandAudio ();
-		Debug.Log ("startTime: " + startTime);
 //		Debug.Log ("endTime: " + endTime);
 	}
 
 	void commandAudio () {
 		if (SimController.instance.isStatePlay()) {
-			if (startTime <= SimController.instance.getCurrentTime()) {
-				AudioController.instance.playAtTime (audioIndex, (SimController.instance.getCurrentTime() - startTime));
+			if (handleStart <= SimController.instance.getCurrentTime()) {
+				AudioController.instance.playAtTime (audioIndex, (SimController.instance.getCurrentTime() - handleStart + audioStartTime));
 			}
-			if (endTime <= SimController.instance.getCurrentTime()) {
+			if (handleEnd <= SimController.instance.getCurrentTime()) {
 				AudioController.instance.stop (audioIndex);
 			}
-		} else if (SimController.instance.isStatePause()) {
+		} else if (!SimController.instance.isStatePlay()) {
 			AudioController.instance.stop (audioIndex);
 		}
 	}
 
-	void updateStartTime () {
-		startTime = this.GetComponent<RectTransform>().anchoredPosition.x;
+//	void updateStartTime () {
+//		startTime = this.GetComponent<RectTransform>().anchoredPosition.x;
+//	}
+
+	void updateHandleStart () {
+		handleStart = this.GetComponent<RectTransform> ().anchoredPosition.x / 2;
 	}
 
-	void updateEndTime () {
-		endTime = startTime + audioLength;
-	}
-
-	void updateAudioLength () {
-		audioLength = this.GetComponent<RectTransform>().sizeDelta.x;
+	void updateHandleEndTime () {
+		handleEnd = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x / 2;
 	}
 
 	#region IBeginDragHandler implementation
