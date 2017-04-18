@@ -57,3 +57,4 @@ MonoBehaviour:
   maxlenght: 120
   animlenght: {fileID: 0}
   curSec: {fileID: 0}
+  ruler: {fileID: 0}
