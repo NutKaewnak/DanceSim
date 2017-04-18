@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TimelineController : MonoBehaviour, IBeginDragHandler, IEndDragHandler {
+public class TimelineManager : MonoBehaviour, IBeginDragHandler, IEndDragHandler {
 
 	// Use this for initialization
 	void Start () {

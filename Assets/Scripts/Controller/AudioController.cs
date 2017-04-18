@@ -19,7 +19,9 @@ public class AudioController : MonoBehaviour {
 	public void playAtTime (int index, float time) {
 		if (SimController.instance.isStatePlay()) {
 			if (!audioArr [index].isPlaying) {
-				Debug.Log ("play");
+				Debug.Log ("currentTime: " + SimController.instance.getCurrentTime ());
+				Debug.Log ("time: " + time);
+				Debug.Log (Mathf.Min (time, audioArr [index].clip.length - 0.01f));
 				audioArr [index].time = time;
 				audioArr [index].Play ();
 			}
