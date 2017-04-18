@@ -54,7 +54,7 @@ MonoBehaviour:
   currentTime: 0
   state: 
   scroll: {fileID: 0}
-  maxlenght: 120
+  maxlenght: 900
   animlenght: {fileID: 0}
   curSec: {fileID: 0}
   ruler: {fileID: 0}
