@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class AudioBlockController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class AudioBlockManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
 	/* 1 unit : 1 sec */
 	[SerializeField] private float startTime;
 	[SerializeField] private float endTime;
 	[SerializeField] private float audioLength;
 	[SerializeField] private int audioIndex = 0;
-
-//	public float scale_x = 0.2f;
 
 	public static GameObject itemBeingDragged;
 	Vector3 startPosition;
@@ -27,7 +25,7 @@ public class AudioBlockController : MonoBehaviour, IBeginDragHandler, IDragHandl
 		updateAudioLength ();
 		updateEndTime ();
 		commandAudio ();
-//		Debug.Log ("startTime: " + startTime);
+		Debug.Log ("startTime: " + startTime);
 //		Debug.Log ("endTime: " + endTime);
 	}
 
