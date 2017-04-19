@@ -700,7 +700,6 @@ GameObject:
   - component: {fileID: 65590913283462256}
   - component: {fileID: 54938449332651164}
   - component: {fileID: 114763255666087354}
-  - component: {fileID: 114877345449767050}
   m_Layer: 0
   m_Name: DancerModel
   m_TagString: Untagged
@@ -2767,7 +2766,7 @@ BoxCollider:
   m_GameObject: {fileID: 1513818679732014}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.45, y: 2, z: 0.24096271}
   m_Center: {x: 0, y: 1, z: 0.003502354}
@@ -2780,7 +2779,7 @@ Animator:
   m_GameObject: {fileID: 1276878701278304}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 516ccdf79be97cf4793a1f33440e48d9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2845,53 +2844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d42f632f079b94e89e752f558df3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114877345449767050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1513818679732014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1822487052264610}
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 1
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1822487052264610}
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 1
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
+  light: {fileID: 108506163947366794}
 --- !u!137 &137157581822894560
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
