@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class TrimRightBlockManager : MonoBehaviour, IPointerClickHandler, IDragHandler {
 
-	[SerializeField] RectTransform audioBlock;
+	[SerializeField]
+    RectTransform audioBlock;
+
 
 	// Use this for initialization
 	void Start () {
@@ -30,8 +32,9 @@ public class TrimRightBlockManager : MonoBehaviour, IPointerClickHandler, IDragH
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {
-//			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
-			audioBlock.sizeDelta = new Vector2 (Input.mousePosition.x/2, 70f);
+            Vector2 oldPosition = audioBlock.anchoredPosition;
+            //			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
+            audioBlock.sizeDelta = new Vector2 ((Input.mousePosition.x - oldPosition.x) / 2, 70f);
 		}
 	}
 	#endregion

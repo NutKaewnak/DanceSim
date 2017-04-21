@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animPath: Assets/Recordings/testTorNaja.anim
+  animName_text: {fileID: 114423281434106716}
 --- !u!222 &222537334689339234
 CanvasRenderer:
   m_ObjectHideFlags: 1

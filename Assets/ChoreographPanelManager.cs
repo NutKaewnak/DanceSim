@@ -18,7 +18,9 @@ public class ChoreographPanelManager : MonoBehaviour, IDropHandler {
 
 	#region IDropHandler implementation
 	public void OnDrop (PointerEventData eventData) {
-		Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EditorScene/ChoreographBlock.prefab", typeof(GameObject)), this.gameObject.transform);
+		if (AnimFileManager.itemBeingDragged && AnimFileManager.itemBeingDragged.GetComponent<AnimFileManager>()) {
+			Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EditorScene/ChoreographBlock.prefab", typeof(GameObject)), this.gameObject.transform);
+		}
 	}
 	#endregion
 }
