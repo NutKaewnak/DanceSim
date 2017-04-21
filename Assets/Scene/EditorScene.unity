@@ -505,12 +505,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 115863396}
---- !u!114 &124529018 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114423281434106716, guid: 7f81bd94138a1234ea25b67d2f54818c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1170447799}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &242862075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,6 +1261,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &627133359 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114987529668395400, guid: c65d4e20f2c053f4f946422b110a4a3b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1159382917}
+  m_Script: {fileID: 11500000, guid: c5e27e1d1a289a048bef4c24fdc6614d, type: 3}
 --- !u!1 &641903303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,22 +1870,22 @@ Prefab:
     - target: {fileID: 224733115066607562, guid: c65d4e20f2c053f4f946422b110a4a3b,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224733115066607562, guid: c65d4e20f2c053f4f946422b110a4a3b,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224733115066607562, guid: c65d4e20f2c053f4f946422b110a4a3b,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224733115066607562, guid: c65d4e20f2c053f4f946422b110a4a3b,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224733115066607562, guid: c65d4e20f2c053f4f946422b110a4a3b,
         type: 2}
@@ -1901,6 +1901,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114308523398984348, guid: c65d4e20f2c053f4f946422b110a4a3b,
+        type: 2}
+      propertyPath: audioBlockManager
+      value: 
+      objectReference: {fileID: 627133359}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c65d4e20f2c053f4f946422b110a4a3b, type: 2}
   m_IsPrefabParent: 0
@@ -2001,16 +2006,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114518802516983928, guid: 7f81bd94138a1234ea25b67d2f54818c,
-        type: 2}
-      propertyPath: animName_text
-      value: 
-      objectReference: {fileID: 124529018}
-    - target: {fileID: 114518802516983928, guid: 7f81bd94138a1234ea25b67d2f54818c,
-        type: 2}
-      propertyPath: inner_choreographPanel
-      value: 
-      objectReference: {fileID: 2132965780}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f81bd94138a1234ea25b67d2f54818c, type: 2}
   m_IsPrefabParent: 0

@@ -5,10 +5,14 @@ using UnityEngine.EventSystems;
 
 public class TrimLeftBlockManager : MonoBehaviour, IPointerClickHandler, IDragHandler {
 
-	[SerializeField] RectTransform audioBlock;
+	[SerializeField]
+    RectTransform audioBlock;
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    AudioBlockManager audioBlockManager;
+
+    // Use this for initialization
+    void Start () {
 
 	}
 
@@ -30,9 +34,16 @@ public class TrimLeftBlockManager : MonoBehaviour, IPointerClickHandler, IDragHa
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {
-//			audioBlock.sizeDelta = new Vector2 (Input.mousePosition.x / 2, 70f);
-			audioBlock.anchoredPosition = new Vector2 (Input.mousePosition.x / 2, 0f);
-		}
+            Vector2 oldPosition = audioBlock.anchoredPosition;
+            
+			audioBlock.sizeDelta = new Vector2 (audioBlock.sizeDelta.x - (Input.mousePosition.x - oldPosition.x)/4, 70f);
+            Debug.Log(audioBlock.sizeDelta.x);
+            audioBlock.position = new Vector3(audioBlock.position.x+ ((Input.mousePosition.x - oldPosition.x) / 2), audioBlock.position.y, audioBlock.position.z);
+//			audioBlock.anchoredPosition = new Vector2 (Input.mousePosition.x / 2, 0f);
+//          audioBlock.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (Input.mousePosition.x - oldPosition.x) / 2);
+            audioBlockManager.shiftStartTime((audioBlock.anchoredPosition.x - oldPosition.x) / 2);
+
+        }
 	}
 	#endregion
 }

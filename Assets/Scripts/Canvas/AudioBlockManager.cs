@@ -65,6 +65,11 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 		}
 	}
 
+    public void shiftStartTime(float time)
+    {
+        this.audioStartTime += time;
+    }
+
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {
