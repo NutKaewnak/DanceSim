@@ -11,18 +11,25 @@ public class ChoreographController : MonoBehaviour {
 	[SerializeField] private GameObject danceModel;
 	private Animator[] modelAnimatorArr;
 
-	// Use this for initialization
 	void Start () {
 		instance = this;
 		modelAnimatorArr = danceModel.transform.GetComponentsInChildren<Animator> ();
 	}
-	
-	// Update is called once per frame
+		
 	void Update () {
-		commandPlay ("test", SimController.instance.getCurrentTime ());	
+
 	}
 
-	public void commandPlay (string motionName, float time) {
+	public void playMotion (string motionName, float time) {
 		modelAnimatorArr [0].PlayInFixedTime (motionName, 0, time);
+	}
+
+	public float getMotionLengthByName (string motionName, int index) {
+		foreach (AnimationClip ac in modelAnimatorArr [index].runtimeAnimatorController.animationClips) {
+			if (motionName.Equals (ac.name)) {
+				return ac.length;
+			}
+		}
+		return 0f;
 	}
 }

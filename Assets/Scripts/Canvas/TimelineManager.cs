@@ -26,7 +26,11 @@ public class TimelineManager : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 	#region IEndDragHandler implementation
 	public void OnEndDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStateStandby()) {
-			SimController.instance.setStatePlay ();
+			if (SimController.instance.isStatePlay ()) {
+				SimController.instance.setStatePlay ();
+			} else if (SimController.instance.isStatePause ()) {
+				SimController.instance.setStatePause ();
+			}
 		}
 	}
 	#endregion
