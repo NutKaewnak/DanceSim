@@ -35,12 +35,8 @@ public class TrimLeftBlockManager : MonoBehaviour, IPointerClickHandler, IDragHa
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {
             Vector2 oldPosition = audioBlock.anchoredPosition;
-            
 			audioBlock.sizeDelta = new Vector2 (audioBlock.sizeDelta.x - (Input.mousePosition.x - oldPosition.x)/4, 70f);
-            Debug.Log(audioBlock.sizeDelta.x);
             audioBlock.position = new Vector3(audioBlock.position.x+ ((Input.mousePosition.x - oldPosition.x) / 2), audioBlock.position.y, audioBlock.position.z);
-//			audioBlock.anchoredPosition = new Vector2 (Input.mousePosition.x / 2, 0f);
-//          audioBlock.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (Input.mousePosition.x - oldPosition.x) / 2);
             audioBlockManager.shiftStartTime((audioBlock.anchoredPosition.x - oldPosition.x) / 2);
 
         }
