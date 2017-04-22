@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83bb9507064dfd4ebc1212305a54582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animPath: Assets/Recordings/testTorNaja.anim
-  animName_text: {fileID: 114423281434106716}
+  animPath: 
+  animName_text: {fileID: 0}
 --- !u!114 &114848045055401010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d04799ddebecf6469c1d126f488455b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 0
   inner_choreoGraphPanel: {fileID: 0}
 --- !u!222 &222537334689339234
 CanvasRenderer:
