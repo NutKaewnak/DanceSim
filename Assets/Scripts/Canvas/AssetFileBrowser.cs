@@ -24,9 +24,6 @@ public class AssetFileBrowser : MonoBehaviour, IPointerClickHandler {
 					audioFile.GetComponent<AudioFileManager> ().setPath (path);
 				}
 			}
-//			GameObject audioFile = Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EditorScene/AudioFile.prefab", typeof(GameObject)), assetPanel.transform);
-//			audioFile.GetComponent<FileIdentity> ().setPath (path);
-//			Debug.Log (path);
 		} else {
 			Debug.Log ("no such a file");
 		}
