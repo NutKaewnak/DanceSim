@@ -27,8 +27,9 @@ public class DoubleClickListener : MonoBehaviour {
 					Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/ChoreographBlock.prefab", 
 						typeof(GameObject)), GameObject.Find ("Choreograph Panel/Panel").transform);
 				} else if (this.GetComponent<AudioFileManager> ()) {
-					Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/AudioBlock.prefab", 
+					GameObject block = Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/AudioBlock.prefab", 
 						typeof(GameObject)), GameObject.Find ("AudioGroup").transform);
+					block.GetComponent<AudioBlockManager>().setAudioName (this.GetComponent<AudioFileManager> ().getName());
 				}
 			}
 		}

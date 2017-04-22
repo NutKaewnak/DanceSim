@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class AudioFileManager : MonoBehaviour {
 
-	[SerializeField] private string audioPath;
+	[SerializeField] private string audioPath, audioName;
 	[SerializeField] private Text audioName_text;
 
 	// Use this for initialization
 	void Start () {
 		string[] path_split = audioPath.Split ("/"[0]);
-		Debug.Log (path_split [path_split.Length - 1]);
-		audioName_text.text = path_split [path_split.Length - 1];
+		audioName = path_split [path_split.Length - 1];
+		audioName_text.text = audioName;
 	}
 
 	// Update is called once per frame
@@ -24,8 +24,11 @@ public class AudioFileManager : MonoBehaviour {
 		this.audioPath = path;
 	}
 
-	public string getPath (string path) {
+	public string getPath () {
 		return this.audioPath;
 	}
 
+	public string getName () {
+		return this.audioName;
+	}
 }
