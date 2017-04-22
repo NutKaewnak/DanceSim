@@ -65,9 +65,14 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 		}
 	}
 
-    public void shiftStartTime(float time)
+    public void setStartTime(float time)
     {
-        this.audioStartTime += time;
+        this.audioStartTime = time;
+    }
+
+    public float getStartTime()
+    {
+        return this.audioStartTime;
     }
 
 	#region IDragHandler implementation
