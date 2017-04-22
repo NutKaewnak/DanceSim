@@ -2356,6 +2356,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1019775330}
+--- !u!114 &1075357283 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114987529668395400, guid: c65d4e20f2c053f4f946422b110a4a3b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1159382917}
+  m_Script: {fileID: 11500000, guid: c5e27e1d1a289a048bef4c24fdc6614d, type: 3}
 --- !u!1 &1134465200
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,6 +3315,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1526336181 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1589874386194346, guid: c65d4e20f2c053f4f946422b110a4a3b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1159382917}
+--- !u!114 &1526336185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1526336181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9db1bbc82c791469c6b61f95a6eb64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioBlockMan: {fileID: 1075357283}
 --- !u!1 &1589376182
 GameObject:
   m_ObjectHideFlags: 0

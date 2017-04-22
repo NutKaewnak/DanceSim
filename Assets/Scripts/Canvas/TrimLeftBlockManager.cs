@@ -33,12 +33,20 @@ public class TrimLeftBlockManager : MonoBehaviour, IPointerClickHandler, IDragHa
 
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
-		if (!SimController.instance.isStatePlay ()) {
-            Vector2 oldPosition = audioBlock.anchoredPosition;
-			audioBlock.sizeDelta = new Vector2 (audioBlock.sizeDelta.x - (Input.mousePosition.x - oldPosition.x)/4, 70f);
-            audioBlock.position = new Vector3(audioBlock.position.x+ ((Input.mousePosition.x - oldPosition.x) / 2), audioBlock.position.y, audioBlock.position.z);
-            audioBlockManager.shiftStartTime((audioBlock.anchoredPosition.x - oldPosition.x) / 2);
 
+        if (audioBlockManager.getStartTime() >= 0)
+        {
+            if (!SimController.instance.isStatePlay())
+            {
+                Vector2 oldPosition = audioBlock.anchoredPosition;
+                audioBlock.sizeDelta = new Vector2(audioBlock.sizeDelta.x - (Input.mousePosition.x - oldPosition.x) / 4, 70f);
+                audioBlock.position = new Vector3(audioBlock.position.x + ((Input.mousePosition.x - oldPosition.x) / 2), audioBlock.position.y, audioBlock.position.z);
+                audioBlockManager.setStartTime(audioBlockManager.getStartTime() + ((audioBlock.anchoredPosition.x - oldPosition.x) / 2));
+            }
+        }
+        else
+        {
+            audioBlockManager.setStartTime(0);
         }
 	}
 	#endregion
