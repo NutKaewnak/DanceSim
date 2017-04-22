@@ -40,6 +40,7 @@ public class SimController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 //		Debug.Log ("state: " + state);
+		// Debug.Log("Cur :" +scroll.value );
 		currentTimeCounter ();
 		maxTime ();
 		stateCommand ();
@@ -74,19 +75,20 @@ public class SimController : MonoBehaviour {
 	void rulerScaler (){
 		Vector3 moveRuler = ruler.transform.position;
 		Vector3 moveScoll = scroll.transform.position;
-
-		// move at 7 min
-		if(scroll.value*maxlenght>=420){
-			moveRuler.x =-840;
-			moveScoll.x =-849;
-			scroll.transform.position = moveScoll;
-			ruler.transform.position = moveRuler;
-		}
-		if(scroll.value*maxlenght<420){
-			moveRuler.x =0;
-			moveScoll.x =-9;
-			scroll.transform.position = moveScoll;
-			ruler.transform.position = moveRuler;
+		if(Application.loadedLevelName == "EditorScene"){
+			// move at 7 min
+			if(scroll.value*maxlenght>=420){
+				moveRuler.x =-840;
+				moveScoll.x =-849;
+				scroll.transform.position = moveScoll;
+				ruler.transform.position = moveRuler;
+			}
+			if(scroll.value*maxlenght<420){
+				moveRuler.x =0;
+				moveScoll.x =-9;
+				scroll.transform.position = moveScoll;
+				ruler.transform.position = moveRuler;
+			}
 		}
 	}
 
