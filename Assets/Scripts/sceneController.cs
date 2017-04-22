@@ -6,7 +6,7 @@ public class sceneController : MonoBehaviour {
 
 	   public void BackToEditor() {
         Application.LoadLevel("EditorScene");
-    }
+       }
 
     	public void goToRecordScene(){
     		Application.LoadLevel("RecordScene");

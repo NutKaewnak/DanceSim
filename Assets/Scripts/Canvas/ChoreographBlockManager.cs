@@ -22,7 +22,7 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 	void Update () {
 		updateHandleStartTime ();
 		updateHandleEndTime ();
-		updatePosition ();
+		updatePositionOver ();
 		commandMotion ();
 	}
 
@@ -34,7 +34,7 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 		handleEnd = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x / 2;
 	}
 
-	void updatePosition () {
+	void updatePositionOver () {
 		if (this.GetComponent<RectTransform> ().anchoredPosition.x < 0f) {
 			this.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0f, 0f);
 		} else if (this.GetComponent<RectTransform> ().anchoredPosition.x > 960f - this.GetComponent<RectTransform> ().sizeDelta.x * 2) {
