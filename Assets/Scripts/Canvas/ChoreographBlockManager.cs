@@ -44,7 +44,6 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 
 	void commandMotion () {
 		if (handleStart <= SimController.instance.getCurrentTime() && handleEnd >= SimController.instance.getCurrentTime()) {
-			Debug.Log (SimController.instance.getCurrentTime ());
 			ChoreographController.instance.playMotion (motionName, SimController.instance.getCurrentTime () - handleStart + motionStartTime);
 		}
 	}
