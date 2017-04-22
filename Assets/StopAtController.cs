@@ -15,6 +15,12 @@ public class StopAtController : MonoBehaviour {
 	[SerializeField]
 	private float maxlenght = 900;
 
+	[SerializeField]
+	private Button playBtn;
+
+	[SerializeField]
+	private Button StandbyBtn;
+
 	float currentTimer = 0;
 	float min = 0;
 	float sec = 0;
@@ -42,7 +48,13 @@ public class StopAtController : MonoBehaviour {
 
 	void checkStop(){
 		if(scrollStartAt.value>=scrollStopAt.value){
-			Debug.Log("object message");
+			SimController.instance.setStatePause();
+			playBtn.gameObject.SetActive(true);
+			StandbyBtn.gameObject.SetActive(false);
+			scrollStartAt.value=scrollStopAt.value;
+		}
+		if(scrollStopAt.value<=scrollStartAt.value){
+			scrollStopAt.value=scrollStartAt.value;
 		}
 	}
 }

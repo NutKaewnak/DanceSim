@@ -44,7 +44,7 @@ public class AudioController : MonoBehaviour {
 	}
 
 	public float getAudioLengthByName (string audioName) {
-		Debug.Log (audioName);
+		// Debug.Log (audioName);
 		AudioSource audio = audioHashTable [audioName] as AudioSource;
 		return audio.clip.length;
 	}
