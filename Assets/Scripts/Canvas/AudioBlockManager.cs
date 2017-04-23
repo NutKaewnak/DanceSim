@@ -17,26 +17,25 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 	
     void initiate () {
 		this.GetComponent<RectTransform>().sizeDelta = new Vector2(AudioController.instance.getAudioLengthByName(audioName), 70.69f);
-		// this.GetComponent<RectTransform>().sizeDelta = new Vector2(20f, 70f);
     }
 
 	void Update () {
-		updateHandleStart ();
 		updateHandleEndTime ();
-		updatePosition ();
+		updatePosX ();
+		updatePositionOver ();
 		updateSize ();
 		commandAudio ();
-	}
-
-	void updateHandleStart () {
-		handleStart = this.GetComponent<RectTransform> ().anchoredPosition.x / 2;
 	}
 
 	void updateHandleEndTime () {
 		handleEnd = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x / 2;
 	}
 
-	void updatePosition () {
+	void updatePosX () {
+		this.GetComponent<RectTransform> ().anchoredPosition = new Vector2(handleStart * 2, 0);
+	}
+
+	void updatePositionOver () {
 		if (this.GetComponent<RectTransform> ().anchoredPosition.x < 0f) {
 			this.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0f, 0f);
 		} else if (this.GetComponent<RectTransform> ().anchoredPosition.x > 960f - this.GetComponent<RectTransform> ().sizeDelta.x * 2) {
@@ -65,14 +64,16 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 		}
 	}
 
-    public void setStartTime(float time)
-    {
-        this.audioStartTime = time;
-    }
+	public float getStartTime() {
+		return this.audioStartTime;
+	}
 
-    public float getStartTime()
-    {
-        return this.audioStartTime;
+	public void setHandleStart (float x) {
+		this.handleStart = x;
+	}
+
+    public void setStartTime(float time) {
+        this.audioStartTime = time;
     }
 
 	public void setAudioName (string name) {
