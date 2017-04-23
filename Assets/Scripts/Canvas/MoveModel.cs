@@ -10,6 +10,7 @@ public class MoveModel : MonoBehaviour {
 	public InputField stopTime;
 	public Scrollbar scroll;
 	public float maxlenght = 900;
+	public GameObject previewBar;
 
 	private float startTimeToSec =0;
 	private float startMin =0;
@@ -26,7 +27,6 @@ public class MoveModel : MonoBehaviour {
 	private bool isPreview = false;
 
 	void Update(){
-		// dragIsEnd();
 		checkTimeStop();
 		moveModelinPreview();
 	}
@@ -46,11 +46,6 @@ public class MoveModel : MonoBehaviour {
 		setMoveAnim();
 	}
 
-	// void dragIsEnd(){
-	// 	if(model.getCheckEndDrag()){
-	// 		scroll.value = stopTimeToSec / maxlenght;
-	// 	}
-	// }
 
 	void checkTimeStop(){
 		if(scroll.value*maxlenght>=stopTimeToSec && SimController.instance.getState().Equals("play")){
@@ -76,16 +71,22 @@ public class MoveModel : MonoBehaviour {
 
 		isPreview =true;
 
-		name = "" + Mathf.RoundToInt(Mathf.Abs(oldPosition.x*10))+Mathf.RoundToInt(oldPosition.y*10)+Mathf.RoundToInt(oldPosition.z*10)+
+		name = "Move" + Mathf.RoundToInt(Mathf.Abs(oldPosition.x*10))+Mathf.RoundToInt(oldPosition.y*10)+Mathf.RoundToInt(oldPosition.z*10)+
 			Mathf.RoundToInt(newPosition.x*10)+Mathf.RoundToInt(newPosition.y*10)+Mathf.RoundToInt(newPosition.z*10);
 
 		model.GetComponent< UnityAnimationRecorder>().SetFileName(name);
 		model.GetComponent< UnityAnimationRecorder>().StartRecording();
 	}
 
+	public void setClickMoveForPopUp(){
+		model.setIsClickmoveForPopUp();
+	}
+
 	void moveModelinPreview(){
-		if (!isPreview)
+		if (!isPreview){
+			previewBar.gameObject.SetActive(false);
 			return;
+		}
 
 		model.GetComponent<Transform>().Translate(modelVelocity * Time.deltaTime);
 	}
