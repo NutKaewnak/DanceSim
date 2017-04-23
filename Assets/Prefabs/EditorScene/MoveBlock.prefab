@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 114041426398543992}
   - component: {fileID: 114153830362762356}
   m_Layer: 31
-  m_Name: ChoreographBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +67,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   motionStartTime: 0
-  motionName: testTorNaja
   handleStart: 0
   handleEnd: 0
 --- !u!222 &222459787020033606
