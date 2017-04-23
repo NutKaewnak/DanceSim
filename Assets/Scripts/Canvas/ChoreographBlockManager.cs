@@ -70,7 +70,7 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {
 			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
-			this.handleStart = this.GetComponent<RectTransform> ().anchoredPosition.x / 2;
+			this.handleStart = Mathf.Max(0f, this.GetComponent<RectTransform> ().anchoredPosition.x / 2);
 		}
 	}
 	#endregion

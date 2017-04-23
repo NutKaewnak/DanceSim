@@ -36,6 +36,7 @@ public class SimController : MonoBehaviour {
 		instance = this;
 		state = "standby";
 		moveAudioGroup ();
+		moveDanceGroup ();
 	}
 
 	// Update is called once per frame
@@ -104,7 +105,6 @@ public class SimController : MonoBehaviour {
 	}
 
 	void moveAudioGroup () {
-		Debug.Log (SceneManager.GetActiveScene ().name);
 		GameObject audioGroup = GameObject.Find ("AudioGroup");
 		if (audioGroup) {
 			audioGroup.transform.SetParent(GameObject.Find ("Timeline").transform);
@@ -112,6 +112,12 @@ public class SimController : MonoBehaviour {
 		}
 	}
 
+	void moveDanceGroup () {
+		GameObject danceGroup = GameObject.Find ("DanceGroup");
+		if (danceGroup && danceGroup.activeSelf) {
+			danceGroup.transform.SetParent (GameObject.Find ("Show").transform);
+		}
+	}
 
 	// SET STATE
 	public void setStatePlay () {
