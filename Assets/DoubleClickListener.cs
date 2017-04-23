@@ -20,6 +20,8 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
 				GameObject block = Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/AudioBlock.prefab", 
 					typeof(GameObject)), GameObject.Find ("AudioGroup").transform);
 				block.GetComponent<AudioBlockManager>().setAudioName (this.GetComponent<AudioFileManager> ().getName());
+			} else if (this.GetComponent<DanceModelInstanitiator>()) {
+				DanceModelInstanitiator.instanitiateModel();
 			}
 		}
 	}
