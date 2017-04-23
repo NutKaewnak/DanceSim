@@ -8,28 +8,52 @@ public class ChoreographController : MonoBehaviour {
 
 	public static ChoreographController instance;
 
-	[SerializeField] private GameObject danceModel;
-	private Animator[] modelAnimatorArr;
+//	[SerializeField] 
+//	GameObject danceModel;
+
+	GameObject danceModelGroup;
+	Animator[] modelAnimatorArr;
+	Hashtable animHashTable;
 
 	void Start () {
 		instance = this;
-		modelAnimatorArr = danceModel.transform.GetComponentsInChildren<Animator> ();
+		animHashTable = new Hashtable ();
+		updateHash ();
 	}
 		
 	void Update () {
 
 	}
 
-	public void playMotion (string motionName, float time) {
-		modelAnimatorArr [0].PlayInFixedTime (motionName, 0, time);
+	void updateHash () {
+		danceModelGroup = GameObject.Find ("DanceGroup");
+		Transform[] danceModel_arr = danceModelGroup.GetComponentsInChildren<Transform> ();
+		foreach (Transform model in danceModel_arr) {
+			if (model.gameObject.name.Equals ("U_Character_REF Kinect combined")) {
+				Debug.Log (model.gameObject.GetInstanceID());
+				animHashTable.Add (model.gameObject.GetInstanceID (), model.gameObject.GetComponent<Animator>());
+			}
+		}
 	}
 
-	public void playToEnd (string motionName) {
-		modelAnimatorArr [0].PlayInFixedTime (motionName, 0, getMotionLengthByName(motionName, 0));
+	public void playMotion (int modelHash, string motionName, float time) {
+		Animator playAnim = animHashTable [modelHash] as Animator;
+		playAnim.PlayInFixedTime (motionName, 0, time);
 	}
 
-	public float getMotionLengthByName (string motionName, int index) {
-		foreach (AnimationClip ac in modelAnimatorArr [index].runtimeAnimatorController.animationClips) {
+	public void playToStart (int modelHash, string motionName) {
+		Animator playAnim = animHashTable [modelHash] as Animator;
+		playAnim.PlayInFixedTime (motionName, 0, 0);
+	}
+
+	public void playToEnd (int modelHash, string motionName) {
+		Animator playAnim = animHashTable [modelHash] as Animator;
+		playAnim.PlayInFixedTime (motionName, 0, getMotionLengthByName(modelHash, motionName));
+	}
+
+	public float getMotionLengthByName (int modelHash, string motionName) {
+		Animator playAnim = animHashTable [modelHash] as Animator;
+		foreach (AnimationClip ac in playAnim.runtimeAnimatorController.animationClips) {
 			if (motionName.Equals (ac.name)) {
 				return ac.length;
 			}

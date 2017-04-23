@@ -59,7 +59,7 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 		}
 	}
 
-	public float getStartTime() {
+	public float getStartTime () {
 		return this.audioStartTime;
 	}
 
@@ -68,7 +68,7 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 		this.GetComponent<RectTransform> ().anchoredPosition = new Vector2(handleStart * 2, 0);
 	}
 
-    public void setStartTime(float time) {
+    public void setStartTime (float time) {
         this.audioStartTime = time;
     }
 

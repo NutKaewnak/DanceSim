@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 
 	/* 1 unit : 1 sec */
+	[SerializeField] private int modelHash;
 	[SerializeField] private float motionStartTime;
 	[SerializeField] private string motionName;
 	[SerializeField] private float handleStart, handleEnd;
@@ -17,7 +18,7 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 	}
 
 	void initiate () {
-		motionLength = ChoreographController.instance.getMotionLengthByName (motionName, 0);
+		motionLength = ChoreographController.instance.getMotionLengthByName (modelHash, motionName);
 		this.GetComponent<RectTransform>().sizeDelta = new Vector2 (motionLength, 70.69f);
 	}
 		
@@ -42,11 +43,13 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 	void commandMotion () {
 		float playTime = SimController.instance.getCurrentTime () - handleStart + motionStartTime;
 		if (handleStart <= SimController.instance.getCurrentTime() && SimController.instance.getCurrentTime() <= handleEnd) {
-			Debug.Log (SimController.instance.getCurrentTime ());
-			ChoreographController.instance.playMotion (motionName, playTime);
+			ChoreographController.instance.playMotion (modelHash, motionName, playTime);
 		}
 		if (SimController.instance.getCurrentTime () > handleEnd) {
-			ChoreographController.instance.playToEnd (motionName);
+			ChoreographController.instance.playToEnd (modelHash, motionName);
+		}
+		if (SimController.instance.getCurrentTime () < handleStart) {
+			ChoreographController.instance.playToStart (modelHash, motionName);
 		}
 	}
 
