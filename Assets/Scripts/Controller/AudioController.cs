@@ -8,8 +8,19 @@ public class AudioController : MonoBehaviour {
 	AudioSource[] audioArr;
 	Hashtable audioHashTable;
 
+	void Awake() {
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else {
+            if (instance != this) {
+                Destroy(this);
+            }
+        }
+    }
+
 	void Start () {
-		instance = this;
 		audioArr = this.transform.GetComponentsInChildren<AudioSource> ();
 		audioHashTable = new Hashtable ();
 		updateHash ();
