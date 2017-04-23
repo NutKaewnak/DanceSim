@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SimController : MonoBehaviour {
 	
@@ -34,7 +35,7 @@ public class SimController : MonoBehaviour {
 	void Start () {
 		instance = this;
 		state = "standby";
-
+		moveAudioGroup ();
 	}
 
 	// Update is called once per frame
@@ -89,6 +90,15 @@ public class SimController : MonoBehaviour {
 				scroll.transform.position = moveScoll;
 				ruler.transform.position = moveRuler;
 			}
+		}
+	}
+
+	void moveAudioGroup () {
+		Debug.Log (SceneManager.GetActiveScene ().name);
+		if (SceneManager.GetActiveScene ().name.Equals ("RecordScene")) {
+			GameObject audioGroup = GameObject.Find ("AudioGroup");
+			audioGroup.transform.SetParent(GameObject.Find ("Timeline").transform);
+			audioGroup.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, -195f);
 		}
 	}
 
