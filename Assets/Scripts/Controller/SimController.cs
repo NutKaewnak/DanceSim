@@ -51,14 +51,24 @@ public class SimController : MonoBehaviour {
 	void currentTimeCounter () {
 		min = Mathf.Floor(scroll.value*maxlenght / 60);
 		sec = (scroll.value * maxlenght) % 60;
-		curSec.text = (min + "." + Mathf.RoundToInt(sec));
+		// curSec.text = (min + "." + Mathf.RoundToInt(sec));
+		curSec.text = min + ".";
+		if(Mathf.RoundToInt(sec)/10<1){
+			curSec.text += 0;
+		}
+		curSec.text += Mathf.RoundToInt(sec);
 		currentTime = scroll.value * maxlenght;
 	}
 
 	void maxTime () {
 		mMin = Mathf.Floor(maxlenght/60);
 		mSec = (maxlenght)%60;
-		animlenght.text = mMin + "." + Mathf.RoundToInt(mSec);
+		// animlenght.text = mMin + "." + Mathf.RoundToInt(mSec);
+		animlenght.text = mMin + ".";
+		if(Mathf.RoundToInt(mSec)/10<1){
+			animlenght.text += 0;
+		}
+		animlenght.text += Mathf.RoundToInt(mSec);
 	}
 
 	void play () {

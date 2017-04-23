@@ -2962,7 +2962,7 @@ Animator:
   m_GameObject: {fileID: 1276878701278304}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 516ccdf79be97cf4793a1f33440e48d9, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3039,8 +3039,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960bdf7b86ec9cb49861587edee2f508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovePop: {fileID: 0}
+  dragModel: {fileID: 114763255666087354}
+  MovePopup: {fileID: 0}
   PopUp: {fileID: 1061029401933584}
+  moveModel: {fileID: 0}
 --- !u!114 &114763255666087354
 MonoBehaviour:
   m_ObjectHideFlags: 1

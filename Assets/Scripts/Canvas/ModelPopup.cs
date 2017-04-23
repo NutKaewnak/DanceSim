@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class ModelPopup : MonoBehaviour {
 
-  public DragModel dragModel;
-	[SerializeField] 
-	private GameObject MovePopup;
-	[SerializeField] 
-	private GameObject PopUp;
+    public DragModel dragModel;
+    [SerializeField] 
+    private GameObject MovePopup;
+    [SerializeField] 
+    private GameObject PopUp;
 
-	public MoveModel moveModel;
-	// Use this for initialization
+    public MoveModel moveModel;
+    public GameObject setCameraTopFront;
+    // Use this for initialization
 
-	void OnMouseDown()
+    void OnMouseDown()
     {
        MovePopup.gameObject.SetActive(true);
        PopUp.gameObject.SetActive(false);
-    }
-
-    public void enableMove (){
-      moveModel.model = dragModel;
-    }
+       moveModel.model = dragModel;
+       dragModel.setMoved();
+       setCameraTopFront.GetComponent<ChangeObjectPosition>().changeTransform();
+     }
 }

@@ -24,8 +24,6 @@ public class MoveModel : MonoBehaviour {
 	}
 
 	public void moveIsClicked(){
-		model.setMoved();
-
 		startMin = Mathf.Floor(float.Parse(startTime.text));
 		startSec = ((float.Parse(startTime.text))-startMin)*100;
 		startTimeToSec = startMin*60+startSec;
