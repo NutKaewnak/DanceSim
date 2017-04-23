@@ -32,7 +32,6 @@ public class AudioController : MonoBehaviour {
 
 	void updateHash () {
 		foreach (AudioSource audio in audioArr) {
-//			Debug.Log (audio.name);
 			audioHashTable.Add(audio.name, audio);
 		}
 	}
