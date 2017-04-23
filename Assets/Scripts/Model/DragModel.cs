@@ -11,8 +11,8 @@ public class DragModel : MonoBehaviour
     private bool checkClickmove = false;
     private bool checkMouseUp = false;
     private bool hasBeenDraged = false;
-    private Transform oldPosition;
-    private Transform newPosition;
+    private Vector3 oldPosition;
+    private Vector3 newPosition;
 
     void start(){
     }
@@ -52,12 +52,23 @@ public class DragModel : MonoBehaviour
 
     public void setMoved(){
         checkClickmove = true;
-        oldPosition = gameObject.transform;
+        oldPosition = gameObject.transform.position;
     }
 
     public bool getCheckEndDrag(){
         return checkMouseUp;
     }
+
+    public Vector3 getOldPosition(){
+        return oldPosition;
+    }
+
+    public Vector3 getNewPosition(){
+        newPosition = gameObject.transform.position;
+        return newPosition;
+    }
+
+
 
     // public void setCheckEndDrag(){
     //     if(!checkMouseUp){

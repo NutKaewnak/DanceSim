@@ -886,7 +886,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4772862982924420, guid: 9af10dbcbc198014aaa42a1e23be5bb9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.98
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4772862982924420, guid: 9af10dbcbc198014aaa42a1e23be5bb9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -936,6 +936,14 @@ Prefab:
       propertyPath: setCameraTopFront
       value: 
       objectReference: {fileID: 1804647700}
+    - target: {fileID: 4941697120826834, guid: 9af10dbcbc198014aaa42a1e23be5bb9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941697120826834, guid: 9af10dbcbc198014aaa42a1e23be5bb9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9af10dbcbc198014aaa42a1e23be5bb9, type: 2}
   m_IsPrefabParent: 0
@@ -2965,6 +2973,27 @@ GameObject:
   m_PrefabParentObject: {fileID: 1513818679732014, guid: 9af10dbcbc198014aaa42a1e23be5bb9,
     type: 2}
   m_PrefabInternal: {fileID: 351963781}
+--- !u!114 &1482955067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1482955066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d61879c2b6b4edcabca7e5b99f7d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savePath: Assets/Recordings/
+  fileName: 
+  startRecordKey: 113
+  stopRecordKey: 119
+  showLogGUI: 0
+  recordLimitedFrames: 0
+  recordFrames: 1000
+  changeTimeScale: 0
+  timeScaleOnStart: 0
+  timeScaleOnRecord: 1
 --- !u!1 &1505239492
 GameObject:
   m_ObjectHideFlags: 0
