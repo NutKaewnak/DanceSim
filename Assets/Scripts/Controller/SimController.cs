@@ -104,12 +104,12 @@ public class SimController : MonoBehaviour {
 
 
 	// SET STATE
-	public void setStatePlay(){
+	public void setStatePlay () {
 		state = "play";
 	}
 
 	public void setStatePause(){
-		if(!state.Equals("standby")){
+		if (!state.Equals("standby")) {
 			state = "pause";
 		}	
 	}

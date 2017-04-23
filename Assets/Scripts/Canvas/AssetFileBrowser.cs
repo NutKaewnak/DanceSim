@@ -13,7 +13,6 @@ public class AssetFileBrowser : MonoBehaviour, IPointerClickHandler {
 
 	#region IPointerClickHandler implementation
 	public void OnPointerClick (PointerEventData eventData) {
-		
 		string path = EditorUtility.OpenFilePanel ("test", "Assets/Musics", "mp3");
 
 		if (path != "") {
