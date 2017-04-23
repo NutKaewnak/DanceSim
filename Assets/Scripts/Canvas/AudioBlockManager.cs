@@ -12,7 +12,7 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 
 	void Start () {
 		audioStartTime = 0;
-        Invoke("initiate", 0.3f);
+        Invoke ("initiate", 0.3f);
 	}
 	
     void initiate () {
@@ -21,7 +21,6 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 
 	void Update () {
 		updateHandleEndTime ();
-		updatePosX ();
 		updatePositionOver ();
 		updateSize ();
 		commandAudio ();
@@ -29,10 +28,6 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 
 	void updateHandleEndTime () {
 		handleEnd = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x / 2;
-	}
-
-	void updatePosX () {
-		this.GetComponent<RectTransform> ().anchoredPosition = new Vector2(handleStart * 2, 0);
 	}
 
 	void updatePositionOver () {
@@ -70,6 +65,7 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 
 	public void setHandleStart (float x) {
 		this.handleStart = x;
+		this.GetComponent<RectTransform> ().anchoredPosition = new Vector2(handleStart * 2, 0);
 	}
 
     public void setStartTime(float time) {
@@ -82,8 +78,10 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
+		Debug.Log ("yah");
 		if (!SimController.instance.isStatePlay ()) {
 			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
+			this.handleStart = this.GetComponent<RectTransform> ().anchoredPosition.x / 2;
 		}
 	}
 	#endregion
