@@ -1220,6 +1220,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1686956969514672, guid: 4f752d9e8221b644faa99db5d11ac1f3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f752d9e8221b644faa99db5d11ac1f3, type: 2}
   m_IsPrefabParent: 0
@@ -2960,7 +2964,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1274411010}
-        m_MethodName: BackToEditor
+        m_MethodName: backToEditor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

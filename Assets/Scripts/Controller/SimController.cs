@@ -95,8 +95,8 @@ public class SimController : MonoBehaviour {
 
 	void moveAudioGroup () {
 		Debug.Log (SceneManager.GetActiveScene ().name);
-		if (SceneManager.GetActiveScene ().name.Equals ("RecordScene")) {
-			GameObject audioGroup = GameObject.Find ("AudioGroup");
+		GameObject audioGroup = GameObject.Find ("AudioGroup");
+		if (audioGroup) {
 			audioGroup.transform.SetParent(GameObject.Find ("Timeline").transform);
 			audioGroup.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, -195f);
 		}
