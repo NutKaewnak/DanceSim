@@ -9,6 +9,7 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 	[SerializeField] private float motionStartTime;
 	[SerializeField] private string motionName;
 	[SerializeField] private float handleStart, handleEnd;
+	[SerializeField] private float motionLength;
 
 	void Start () {
 		motionStartTime = 0;
@@ -16,18 +17,14 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 	}
 
 	void initiate () {
-		this.GetComponent<RectTransform>().sizeDelta = new Vector2 (ChoreographController.instance.getMotionLengthByName (motionName, 0), 70.69f);
+		motionLength = ChoreographController.instance.getMotionLengthByName (motionName, 0);
+		this.GetComponent<RectTransform>().sizeDelta = new Vector2 (motionLength, 70.69f);
 	}
 		
 	void Update () {
-		updateHandleStartTime ();
 		updateHandleEndTime ();
 		updatePositionOver ();
 		commandMotion ();
-	}
-
-	void updateHandleStartTime () {
-		handleStart = this.GetComponent<RectTransform>().anchoredPosition.x / 2;
 	}
 
 	void updateHandleEndTime () {
@@ -43,15 +40,26 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 	}
 
 	void commandMotion () {
-		if (handleStart <= SimController.instance.getCurrentTime() && handleEnd >= SimController.instance.getCurrentTime()) {
-			ChoreographController.instance.playMotion (motionName, SimController.instance.getCurrentTime () - handleStart + motionStartTime);
+		float playTime = SimController.instance.getCurrentTime () - handleStart + motionStartTime;
+		if (handleStart <= SimController.instance.getCurrentTime() && SimController.instance.getCurrentTime() <= handleEnd) {
+			Debug.Log (SimController.instance.getCurrentTime ());
+			ChoreographController.instance.playMotion (motionName, playTime);
 		}
+		if (SimController.instance.getCurrentTime () > handleEnd) {
+			ChoreographController.instance.playToEnd (motionName);
+		}
+	}
+
+	public void setHandleStart (float x) {
+		this.handleStart = x;
+		this.GetComponent<RectTransform> ().anchoredPosition = new Vector2(handleStart * 2, 0);
 	}
 
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {
 			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
+			this.handleStart = this.GetComponent<RectTransform> ().anchoredPosition.x / 2;
 		}
 	}
 	#endregion

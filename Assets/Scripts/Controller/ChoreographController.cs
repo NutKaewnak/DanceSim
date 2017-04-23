@@ -24,6 +24,10 @@ public class ChoreographController : MonoBehaviour {
 		modelAnimatorArr [0].PlayInFixedTime (motionName, 0, time);
 	}
 
+	public void playToEnd (string motionName) {
+		modelAnimatorArr [0].PlayInFixedTime (motionName, 0, getMotionLengthByName(motionName, 0));
+	}
+
 	public float getMotionLengthByName (string motionName, int index) {
 		foreach (AnimationClip ac in modelAnimatorArr [index].runtimeAnimatorController.animationClips) {
 			if (motionName.Equals (ac.name)) {
