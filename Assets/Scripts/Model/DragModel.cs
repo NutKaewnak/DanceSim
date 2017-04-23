@@ -9,8 +9,7 @@ public class DragModel : MonoBehaviour
     [SerializeField] private Light light;
     [SerializeField] private GameObject popUp;
     private bool checkClickmove = false;
-    private bool checkMouseUp = false;
-    private bool hasBeenDraged = false;
+    private bool checkClickmoveForPopUp = false;
     private Vector3 oldPosition;
     private Vector3 newPosition;
 
@@ -22,7 +21,7 @@ public class DragModel : MonoBehaviour
     void OnMouseDown()
     {
         Vector3 popPOS = new Vector3(transform.position.x-1f,transform.position.y+3f, 0);
-        if(!checkClickmove){
+        if(!checkClickmoveForPopUp){
             popUp.gameObject.SetActive(true);
         }
         popUp.transform.position = popPOS;
@@ -38,27 +37,22 @@ public class DragModel : MonoBehaviour
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
             curPosition.y = transform.position.y;
             transform.position = curPosition;
-            hasBeenDraged = true;
         }
     }
 
     void OnMouseUp(){
         light.gameObject.SetActive(false);
+    }
 
-        if (hasBeenDraged){
-            checkMouseUp = true;
-        }
+    public void setIsClickmoveForPopUp(){
+        checkClickmoveForPopUp = false;
     }
 
     public void setMoved(){
+        checkClickmoveForPopUp = true;
         checkClickmove = true;
         oldPosition = gameObject.transform.position;
     }
-
-    public bool getCheckEndDrag(){
-        return checkMouseUp;
-    }
-
     public Vector3 getOldPosition(){
         return oldPosition;
     }
@@ -67,14 +61,4 @@ public class DragModel : MonoBehaviour
         newPosition = gameObject.transform.position;
         return newPosition;
     }
-
-
-
-    // public void setCheckEndDrag(){
-    //     if(!checkMouseUp){
-    //         checkMouseUp=true;
-    //     }
-    //     else
-    //         checkMouseUp=false;
-    // }
 }
