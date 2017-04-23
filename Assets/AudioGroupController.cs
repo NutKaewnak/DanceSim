@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class AudioGroupController : MonoBehaviour {
 
-	[SerializeField] private GameObject audioGroup;
+	public List<GameObject> audioGameobject_list;
+
+	[SerializeField] 
+	private GameObject audioGroup;
 	Transform[] audioTransform_arr;
-	List<GameObject> audioGameobject_list;
 
 	// Use this for initialization
 	void Start () {
 		audioTransform_arr = audioGroup.GetComponentsInChildren<Transform> ();
 		updateAudioBlock ();
+		DontDestroyOnLoad (this);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 	}
 
 	void updateAudioBlock () {
@@ -28,4 +32,11 @@ public class AudioGroupController : MonoBehaviour {
 			}
 		}
 	}
+
+	public void checkAudioBlock () {
+		foreach (GameObject temp in audioGameobject_list) {
+			Debug.Log (temp);
+		}
+	}
+
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SimController : MonoBehaviour {
 	
@@ -34,7 +35,7 @@ public class SimController : MonoBehaviour {
 	void Start () {
 		instance = this;
 		state = "standby";
-
+		moveAudioGroup ();
 	}
 
 	// Update is called once per frame
@@ -92,14 +93,23 @@ public class SimController : MonoBehaviour {
 		}
 	}
 
+	void moveAudioGroup () {
+		Debug.Log (SceneManager.GetActiveScene ().name);
+		GameObject audioGroup = GameObject.Find ("AudioGroup");
+		if (audioGroup) {
+			audioGroup.transform.SetParent(GameObject.Find ("Timeline").transform);
+			audioGroup.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, -195f);
+		}
+	}
+
 
 	// SET STATE
-	public void setStatePlay(){
+	public void setStatePlay () {
 		state = "play";
 	}
 
 	public void setStatePause(){
-		if(!state.Equals("standby")){
+		if (!state.Equals("standby")) {
 			state = "pause";
 		}	
 	}
