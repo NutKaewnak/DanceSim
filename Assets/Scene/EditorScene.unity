@@ -728,6 +728,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114961927239867990, guid: e62acac50ad8cbe4db24b2a8dae3403d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961927239867990, guid: e62acac50ad8cbe4db24b2a8dae3403d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931598875527132, guid: e62acac50ad8cbe4db24b2a8dae3403d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e62acac50ad8cbe4db24b2a8dae3403d, type: 2}
   m_IsPrefabParent: 0
@@ -1151,6 +1166,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 396918889}
+--- !u!1 &415582194 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1339976271529380, guid: e62acac50ad8cbe4db24b2a8dae3403d,
+    type: 2}
+  m_PrefabInternal: {fileID: 272148089}
+--- !u!114 &415582199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 415582194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a0e6c40188e2743914c4d0a57cfd89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &428167427
 Prefab:
   m_ObjectHideFlags: 0
