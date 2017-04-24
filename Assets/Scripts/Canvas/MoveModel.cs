@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MoveModel : MonoBehaviour {
 
-	public DragModel model;
+	public ModelManager model;
 	public InputField startTime;
 	public InputField stopTime;
 	public Scrollbar scroll;

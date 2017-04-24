@@ -27,24 +27,32 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
             }
 		}
 	}
-	#endregion
+    #endregion
 
-	void addChoreoGraphBlock () {
-		GameObject choreoGraphBlock_prefab = (GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/ChoreographBlock.prefab", typeof(GameObject));
-		choreoGraphBlock_prefab.GetComponent<ChoreographBlockManager> ().setModelHash (ChoreographController.instance.getSelectingModelHash ());
-		Transform choreoGraphInner_panel = GameObject.Find ("Choreograph Panel/Panel").transform;
-		GameObject block = GameObject.Instantiate (choreoGraphBlock_prefab, choreoGraphInner_panel);
-		block.GetComponent<ChoreographBlockManager> ().setHandleStart(ChoreographPanelController.instance.getLastLength () / 2);
-	}
+    void addChoreoGraphBlock()
+    {
+        GameObject choreoGraphBlock_prefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EditorScene/ChoreographBlock.prefab", typeof(GameObject));
+        Transform choreoGraphInner_panel = GameObject.Find("Choreograph Panel/Panel").transform;
+        choreoGraphBlock_prefab.GetComponent<ChoreographBlockManager>().setModelHash(ChoreographController.instance.getSelectingModelHash());
 
-	void addAudioBlock () {
-		GameObject audioBlock_prefab = (GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/AudioBlock.prefab", typeof(GameObject));
-		Transform audioGroup = GameObject.Find ("AudioGroup").transform;
-		audioBlock_prefab.GetComponent<AudioBlockManager>().setAudioName (this.GetComponent<AudioFileManager> ().getName());
-		GameObject block = Instantiate (audioBlock_prefab, audioGroup);
-		block.GetComponent<AudioBlockManager>().setHandleStart(AudioGroupController.instance.getLastLength() / 2);
-		AudioController.instance.addAudioClip (this.GetComponent<AudioFileManager> ().getPath ());
-	}
+        GameObject block = GameObject.Instantiate(choreoGraphBlock_prefab, choreoGraphInner_panel);
+        block.GetComponent<ChoreographBlockManager>().setMotionName(this.GetComponent<AnimFileManager>().getAnimName());
+        block.GetComponent<ChoreographBlockManager>().setHandleStart(ChoreographPanelController.instance.getLastLength() / 2);
+
+        ChoreographController.instance.addAnimClip(this.GetComponent<AnimFileManager>().getAnimName());
+    }
+
+    void addAudioBlock()
+    {
+        GameObject audioBlock_prefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EditorScene/AudioBlock.prefab", typeof(GameObject));
+        Transform audioGroup = GameObject.Find("AudioGroup").transform;
+        audioBlock_prefab.GetComponent<AudioBlockManager>().setAudioName(this.GetComponent<AudioFileManager>().getName());
+
+        GameObject block = Instantiate(audioBlock_prefab, audioGroup);
+        block.GetComponent<AudioBlockManager>().setHandleStart(AudioGroupController.instance.getLastLength() / 2);
+
+        AudioController.instance.addAudioClip(this.GetComponent<AudioFileManager>().getPath());
+    }
 
     void addDancerModel ()
     {

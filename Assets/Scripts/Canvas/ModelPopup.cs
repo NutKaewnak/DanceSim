@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ModelPopup : MonoBehaviour {
 
-    public DragModel dragModel;
+    public ModelManager dragModel;
     [SerializeField] 
     private GameObject MovePopup;
     [SerializeField] 

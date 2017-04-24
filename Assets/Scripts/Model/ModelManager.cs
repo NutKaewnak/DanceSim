@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragModel : MonoBehaviour {
+public class ModelManager : MonoBehaviour {
     private Vector3 screenPoint;
     private Vector3 offset;
     [SerializeField] private Light light;
@@ -19,6 +19,7 @@ public class DragModel : MonoBehaviour {
     }
     void Update()
     {
+        checkCollider();
         checkLightingOff();
     }
 
@@ -67,7 +68,17 @@ public class DragModel : MonoBehaviour {
 		ChoreographController.instance.setSelectingModelHash (modelHash);
 		ChoreographController.instance.setIsSelectingModel (true);
         checkDancerHash = ChoreographController.instance.getSelectingModelHash();
+    }
 
+    void checkCollider ()
+    {
+        if (SimController.instance.isStateStandby())
+        {
+            this.GetComponent<BoxCollider>().enabled = true;
+        } else
+        {
+            this.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
     public void setIsClickmoveForPopUp () {

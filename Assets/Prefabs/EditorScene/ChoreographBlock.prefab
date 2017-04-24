@@ -67,10 +67,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca95a37a1ea349b4ba4e7267adff028a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modelHash: -322220
   motionStartTime: 0
-  motionName: testTorNaja
+  motionName: 
   handleStart: 0
   handleEnd: 0
+  motionLength: 0
 --- !u!222 &222459787020033606
 CanvasRenderer:
   m_ObjectHideFlags: 1
