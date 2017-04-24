@@ -51,4 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663bdb1005f52f44facd20ab564547af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  danceModel: {fileID: 0}
+  modelAnimator: {fileID: 9100000, guid: 516ccdf79be97cf4793a1f33440e48d9, type: 2}

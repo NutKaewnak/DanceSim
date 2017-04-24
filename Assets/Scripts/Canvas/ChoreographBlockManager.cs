@@ -71,6 +71,14 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 		this.modelHash = hash;
 	}
 
+	public void setMotionName (string name) {
+		this.motionName = name;
+	}
+
+	public string getMotionName () {
+		return this.motionName;
+	}
+
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {

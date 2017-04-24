@@ -14,11 +14,15 @@ public class AnimFileManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		animName_text.text = "testTorNaja";
+		animName_text.text = animName;
 	}
 
 	public void setAnimName (string name) {
 		this.animName = name;
+	}
+
+	public string getAnimName () {
+		return this.animName;
 	}
 
 }

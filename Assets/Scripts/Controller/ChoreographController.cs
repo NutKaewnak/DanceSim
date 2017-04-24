@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 using UnityEditor.Animations;
 
 public class ChoreographController : MonoBehaviour {
 
 	public static ChoreographController instance;
 
+	[SerializeField]
+	private AnimatorController modelAnimator;
 	int selectingModel_hash;
 	bool isSelectingModel;
 	GameObject danceModelGroup;
@@ -60,6 +63,12 @@ public class ChoreographController : MonoBehaviour {
 			}
 		}
 		return 0f;
+	}
+
+	public void addAnimClip (string motionName) {
+		Debug.Log (motionName);
+		AnimationClip motion = (AnimationClip)AssetDatabase.LoadAssetAtPath ("Assets/Recordings/" + motionName + ".anim", typeof(AnimationClip));
+		modelAnimator.AddMotion (motion);
 	}
 
 	public void setSelectingModelHash (int hash) {
