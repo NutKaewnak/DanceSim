@@ -10,9 +10,12 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 	[SerializeField] private float audioStartTime;
 	[SerializeField] private string audioName;
 	[SerializeField] private float handleStart, handleEnd;
+    [SerializeField] Button removeBtn;
+    
     public Text startTimeText;
     private float min;
     private float sec;
+    
 	void Start () {
 		audioStartTime = 0;
         Invoke ("initiate", 0.3f);
@@ -54,7 +57,22 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 		} else if (this.GetComponent<RectTransform> ().anchoredPosition.x > 960f - this.GetComponent<RectTransform> ().sizeDelta.x * 2) {
 			this.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (960f - this.GetComponent<RectTransform> ().sizeDelta.x * 2, 0f);
 		}
+
+       
 	}
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            CreatepopUp();
+        }
+    }
+
+    void CreatepopUp()
+    {
+        removeBtn.gameObject.SetActive(true);
+    }
 
 	void updateSize () {
 		if (this.GetComponent<RectTransform> ().sizeDelta.x > AudioController.instance.getAudioLengthByName (audioName)) {
@@ -94,8 +112,8 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 		this.audioName = name;
 	}
 
-	#region IDragHandler implementation
-	public void OnDrag (PointerEventData eventData) {
+    #region IDragHandler implementation
+    public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {
 			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
 			this.handleStart = Mathf.Max(0f, this.GetComponent<RectTransform> ().anchoredPosition.x / 2);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class removePop : MonoBehaviour {
+public class removeAudioBlock : MonoBehaviour {
     [SerializeField]
     private GameObject obj;
 
@@ -10,8 +10,13 @@ public class removePop : MonoBehaviour {
 
     public void OnMouseDown()
     {
-    	Destroy(obj);
-       Debug.Log("RemoveNa");
+        destroyAudioBlock();
     }
-	
+
+    public void destroyAudioBlock()
+    {
+        Destroy(obj);
+        Debug.Log("RemoveNa");
+    }
+
 }

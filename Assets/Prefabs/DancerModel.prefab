@@ -3999,7 +3999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d61879c2b6b4edcabca7e5b99f7d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savePath: Assets/Recordings/
+  savePath: Assets/Recordings/Move
   fileName: 
   startRecordKey: 0
   stopRecordKey: 0
@@ -4259,7 +4259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5267dab6dd744964187aa4f84b320756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Model: {fileID: 1080502002207562}
+  obj: {fileID: 1080502002207562}
 --- !u!114 &114775651283448710
 MonoBehaviour:
   m_ObjectHideFlags: 1
