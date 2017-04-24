@@ -38,18 +38,19 @@ public class ChoreographController : MonoBehaviour {
 
 	public void playMotion (int modelHash, string motionName, float time) {
 		Animator playAnim = animHashTable [modelHash] as Animator;
+		playAnim.speed = 1;
 		playAnim.PlayInFixedTime (motionName, 0, time);
 	}
 
-	public void playToStart (int modelHash, string motionName) {
-		Animator playAnim = animHashTable [modelHash] as Animator;
-		playAnim.PlayInFixedTime (motionName, 0, 0);
-	}
-
-	public void playToEnd (int modelHash, string motionName) {
-		Animator playAnim = animHashTable [modelHash] as Animator;
-		playAnim.PlayInFixedTime (motionName, 0, getMotionLengthByName(modelHash, motionName));
-	}
+//	public void playToStart (int modelHash, string motionName) {
+//		Animator playAnim = animHashTable [modelHash] as Animator;
+//		playAnim.speed = -100;
+//	}
+//
+//	public void playToEnd (int modelHash, string motionName) {
+//		Animator playAnim = animHashTable [modelHash] as Animator;
+//		playAnim.speed = 100;
+//	}
 
 	public float getMotionLengthByName (int modelHash, string motionName) {
 		Animator playAnim = animHashTable [modelHash] as Animator;

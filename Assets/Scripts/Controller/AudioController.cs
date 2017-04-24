@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class AudioController : MonoBehaviour {
 	
@@ -29,8 +30,12 @@ public class AudioController : MonoBehaviour {
 		
 	}
 
-	void updateHash () {
+	public void updateHash () {
+		audioArr = this.transform.GetComponentsInChildren<AudioSource> ();
+		audioHashTable.Clear ();
+		Debug.Log ("updateHash");
 		foreach (AudioSource audio in audioArr) {
+//			Debug.Log (audio);
 			audioHashTable.Add(audio.name, audio);
 		}
 	}
@@ -53,9 +58,24 @@ public class AudioController : MonoBehaviour {
 	}
 
 	public float getAudioLengthByName (string audioName) {
-		// Debug.Log (audioName);
 		AudioSource audio = audioHashTable [audioName] as AudioSource;
 		return audio.clip.length;
+	}
+
+	public void addAudioClip (string path) {
+		GameObject audioObject = new GameObject ();
+		audioObject.transform.parent = this.gameObject.transform;
+		WWW www = new WWW ("file:///" + path);
+		Debug.Log (path);
+		string[] path_split = path.Split ("/"[0]);
+		string	audioName = path_split [path_split.Length - 1];
+		audioObject.name = audioName;
+		audioObject.AddComponent<AudioSource> ();
+		audioObject.GetComponent<AudioSource> ().clip = www.GetAudioClip(false, true);
+		audioObject.GetComponent<AudioSource> ().playOnAwake = false;
+		updateHash ();
+//		Invoke ("updateHash", 1f);
+//		Instantiate (audioObject, this.gameObject.transform);
 	}
 
 }
