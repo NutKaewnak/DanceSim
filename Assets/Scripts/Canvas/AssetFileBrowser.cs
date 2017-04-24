@@ -20,7 +20,9 @@ public class AssetFileBrowser : MonoBehaviour, IPointerClickHandler {
 			foreach (FileSlotManager slot in fileSlot_arr) {
 				if (!slot.file) {
 					GameObject audioFile = Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EditorScene/AudioFile.prefab", typeof(GameObject)), slot.getTransform());
+					audioFile.GetComponent<RectTransform> ().anchoredPosition = Vector2.zero;
 					audioFile.GetComponent<AudioFileManager> ().setPath (path);
+					break;
 				}
 			}
 		} else {

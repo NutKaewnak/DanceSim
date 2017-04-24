@@ -32,10 +32,10 @@ public class AudioController : MonoBehaviour {
 
 	public void updateHash () {
 		audioArr = this.transform.GetComponentsInChildren<AudioSource> ();
-		audioHashTable = new Hashtable ();
+		audioHashTable.Clear ();
 		Debug.Log ("updateHash");
 		foreach (AudioSource audio in audioArr) {
-			Debug.Log (audio);
+//			Debug.Log (audio);
 			audioHashTable.Add(audio.name, audio);
 		}
 	}
@@ -58,7 +58,6 @@ public class AudioController : MonoBehaviour {
 	}
 
 	public float getAudioLengthByName (string audioName) {
-		Debug.Log (audioName);
 		AudioSource audio = audioHashTable [audioName] as AudioSource;
 		return audio.clip.length;
 	}

@@ -43,22 +43,23 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 	void updateSize () {
 		if (this.GetComponent<RectTransform> ().sizeDelta.x > motionLength) {
 			this.GetComponent<RectTransform> ().sizeDelta = new Vector2 (motionLength, 70f);
-		} else if (this.GetComponent<RectTransform> ().sizeDelta.x < 0f) {
-			this.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0f, 70f);
+		} else if (this.GetComponent<RectTransform> ().sizeDelta.x < 1f) {
+			this.GetComponent<RectTransform> ().sizeDelta = new Vector2 (1f, 70f);
 		}
 	}
 
 	void commandMotion () {
 		float playTime = SimController.instance.getCurrentTime () - handleStart + motionStartTime;
 		if (handleStart <= SimController.instance.getCurrentTime() && SimController.instance.getCurrentTime() <= handleEnd) {
+			
 			ChoreographController.instance.playMotion (modelHash, motionName, playTime);
 		}
-		if (SimController.instance.getCurrentTime () > handleEnd) {
-			ChoreographController.instance.playToEnd (modelHash, motionName);
-		}
-		if (SimController.instance.getCurrentTime () < handleStart) {
-			ChoreographController.instance.playToStart (modelHash, motionName);
-		}
+//		if (SimController.instance.getCurrentTime () > handleEnd) {
+//			ChoreographController.instance.playToEnd (modelHash, motionName);
+//		}
+//		if (SimController.instance.getCurrentTime () < handleStart) {
+//			ChoreographController.instance.playToStart (modelHash, motionName);
+//		}
 	}
 
 	public void setHandleStart (float x) {

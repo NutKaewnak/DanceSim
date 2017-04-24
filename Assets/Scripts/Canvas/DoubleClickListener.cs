@@ -30,7 +30,8 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
 		GameObject choreoGraphBlock_prefab = (GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/ChoreographBlock.prefab", typeof(GameObject));
 		choreoGraphBlock_prefab.GetComponent<ChoreographBlockManager> ().setModelHash (ChoreographController.instance.getSelectingModelHash ());
 		Transform choreoGraphInner_panel = GameObject.Find ("Choreograph Panel/Panel").transform;
-		Instantiate (choreoGraphBlock_prefab, choreoGraphInner_panel);
+		GameObject block = GameObject.Instantiate (choreoGraphBlock_prefab, choreoGraphInner_panel);
+		block.GetComponent<ChoreographBlockManager> ().setHandleStart(ChoreographPanelController.instance.getLastLength () / 2);
 	}
 
 	void addAudioBlock () {
@@ -38,8 +39,7 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
 		Transform audioGroup = GameObject.Find ("AudioGroup").transform;
 		audioBlock_prefab.GetComponent<AudioBlockManager>().setAudioName (this.GetComponent<AudioFileManager> ().getName());
 		GameObject block = Instantiate (audioBlock_prefab, audioGroup);
-		block.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (AudioGroupController.instance.getLastLength (), 0);
-
+		block.GetComponent<AudioBlockManager>().setHandleStart(AudioGroupController.instance.getLastLength() / 2);
 		AudioController.instance.addAudioClip (this.GetComponent<AudioFileManager> ().getPath ());
 	}
 }
