@@ -13,7 +13,8 @@ public class DragModel : MonoBehaviour
     private Vector3 oldPosition;
     private Vector3 newPosition;
 
-    void start(){
+    void Start () {
+		
     }
 
 
@@ -21,6 +22,7 @@ public class DragModel : MonoBehaviour
     void OnMouseDown()
     {
         Vector3 popPOS = new Vector3(transform.position.x-1f,transform.position.y+3f, 0);
+//		int modelHash = this.transform.GetChild (0).GetInstanceID ();
         if(!checkClickmoveForPopUp){
             popUp.gameObject.SetActive(true);
         }
@@ -28,6 +30,8 @@ public class DragModel : MonoBehaviour
         screenPoint = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         light.gameObject.SetActive(true);
+//		Debug.Log (modelHash);
+
     }
 
     void OnMouseDrag()

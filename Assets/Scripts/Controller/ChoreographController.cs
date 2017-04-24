@@ -10,7 +10,7 @@ public class ChoreographController : MonoBehaviour {
 
 //	[SerializeField] 
 //	GameObject danceModel;
-
+	int selectingModel_hash;
 	GameObject danceModelGroup;
 	Animator[] modelAnimatorArr;
 	Hashtable animHashTable;
@@ -59,5 +59,9 @@ public class ChoreographController : MonoBehaviour {
 			}
 		}
 		return 0f;
+	}
+
+	public void setSelectingModel (int hash) {
+		this.selectingModel_hash = hash;
 	}
 }
