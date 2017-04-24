@@ -753,7 +753,6 @@ GameObject:
   - component: {fileID: 65590913283462256}
   - component: {fileID: 54938449332651164}
   - component: {fileID: 114763255666087354}
-  - component: {fileID: 114491298318308880}
   - component: {fileID: 114133697413051844}
   m_Layer: 0
   m_Name: DancerModel
@@ -2964,7 +2963,7 @@ Animator:
   m_GameObject: {fileID: 1276878701278304}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 516ccdf79be97cf4793a1f33440e48d9, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3051,27 +3050,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Model: {fileID: 1513818679732014}
---- !u!114 &114491298318308880
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1513818679732014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9d61879c2b6b4edcabca7e5b99f7d55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  savePath: Assets/Recordings/
-  fileName: 
-  startRecordKey: 0
-  stopRecordKey: 0
-  showLogGUI: 0
-  recordLimitedFrames: 0
-  recordFrames: 1000
-  changeTimeScale: 0
-  timeScaleOnStart: 0
-  timeScaleOnRecord: 1
 --- !u!114 &114712857839231348
 MonoBehaviour:
   m_ObjectHideFlags: 1
