@@ -14,6 +14,8 @@ public class ChoreographController : MonoBehaviour {
 	Animator[] modelAnimatorArr;
 	Hashtable animHashTable;
 
+
+
 	void Start () {
 		instance = this;
 		isSelectingModel = false;
@@ -77,4 +79,5 @@ public class ChoreographController : MonoBehaviour {
 	public bool getIsSelectingModel () {
 		return this.isSelectingModel;
 	}
+
 }

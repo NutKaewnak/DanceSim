@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 224403969708528020}
   - component: {fileID: 222470758530504288}
   - component: {fileID: 114134433571795576}
-  - component: {fileID: 114823013384892578}
   - component: {fileID: 114076979752837578}
+  - component: {fileID: 114400652006740364}
   m_Layer: 5
-  m_Name: AnimFile
+  m_Name: ModelFile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 222733023128654094}
   - component: {fileID: 114732777745361756}
   m_Layer: 5
-  m_Name: AnimFileName
+  m_Name: FileName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,15 +88,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03254757, g: 0.63235295, b: 0.23524049, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e6f4f1de600724942aa21ecb3eedb5bd, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -112,6 +112,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d1971dbe2c86ed42bf1c9eee02d2e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114400652006740364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265891088351004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c615e5717f4f4f34f92f9aa2ab6c4fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114511125141824444
@@ -173,20 +184,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Anim Name
---- !u!114 &114823013384892578
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1265891088351004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d83bb9507064dfd4ebc1212305a54582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animPath: 
-  animName_text: {fileID: 114732777745361756}
+  m_Text: U_Model
 --- !u!222 &222470758530504288
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -240,7 +238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 200}
+  m_AnchoredPosition: {x: 200, y: 200}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0, y: 0}
 --- !u!224 &224949858339710586

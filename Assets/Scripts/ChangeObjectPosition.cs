@@ -8,6 +8,7 @@ public class ChangeObjectPosition : MonoBehaviour {
     public Vector3 newPosition;
     public void changeTransform()
     {
+        this.obj = GameObject.Find("Main Camera");
         this.obj.transform.position = this.newPosition;
     }
 }

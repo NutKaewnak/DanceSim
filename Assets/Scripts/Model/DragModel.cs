@@ -12,13 +12,28 @@ public class DragModel : MonoBehaviour {
     private Vector3 oldPosition;
     private Vector3 newPosition;
 
+    private int checkDancerHash;
+
     void Start () {
 		
     }
- 
-    void OnMouseDown () {
-		popUpModel ();
-		selectModel ();
+    void Update()
+    {
+        checkLightingOff();
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            selectModel();
+
+
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            popUpModel();
+        }
     }
 
     void OnMouseDrag () {
@@ -30,11 +45,12 @@ public class DragModel : MonoBehaviour {
         }
     }
 
-    void OnMouseUp () {
+    /*void OnMouseUp () {
         light.gameObject.SetActive(false);
-    }
+    }*/
 
 	void popUpModel () {
+        Debug.Log("popup");
 		Vector3 popPOS = new Vector3(transform.position.x-1f,transform.position.y+3f, 0);
 		if(!checkClickmoveForPopUp){
 			popUp.gameObject.SetActive(true);
@@ -42,14 +58,17 @@ public class DragModel : MonoBehaviour {
 		popUp.transform.position = popPOS;
 		screenPoint = Camera.main.WorldToScreenPoint(transform.position);
 		offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-		light.gameObject.SetActive(true);
 	}
 
 	void selectModel () {
-		int modelHash = this.transform.GetChild (0).gameObject.GetInstanceID ();
+        Debug.Log("select");
+        light.gameObject.SetActive(true);
+        int modelHash = this.transform.GetChild (0).gameObject.GetInstanceID ();
 		ChoreographController.instance.setSelectingModelHash (modelHash);
 		ChoreographController.instance.setIsSelectingModel (true);
-	}
+        checkDancerHash = ChoreographController.instance.getSelectingModelHash();
+
+    }
 
     public void setIsClickmoveForPopUp () {
         checkClickmoveForPopUp = false;
@@ -67,5 +86,18 @@ public class DragModel : MonoBehaviour {
     public Vector3 getNewPosition () {
         newPosition = gameObject.transform.position;
         return newPosition;
+    }
+
+    public void setMoveFalse()
+    {
+        checkClickmove = false;
+        checkClickmoveForPopUp = false;
+    }
+    public void checkLightingOff()
+    {
+        if (checkDancerHash != ChoreographController.instance.getSelectingModelHash())
+        {
+            light.gameObject.SetActive(false);
+        }
     }
 }

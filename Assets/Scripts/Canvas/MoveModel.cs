@@ -9,7 +9,7 @@ public class MoveModel : MonoBehaviour {
 	public InputField startTime;
 	public InputField stopTime;
 	public Scrollbar scroll;
-	public float maxlenght = 900;
+    public float maxlenght = 900;
 	public GameObject previewBar;
 
 	private float startTimeToSec =0;
@@ -26,7 +26,12 @@ public class MoveModel : MonoBehaviour {
 
 	private bool isPreview = false;
 
-	void Update(){
+    private void Start()
+    {
+        scroll = Scrollbar.FindObjectOfType<Scrollbar>();
+    }
+
+    void Update(){
 		checkTimeStop();
 		moveModelinPreview();
 	}
@@ -35,7 +40,8 @@ public class MoveModel : MonoBehaviour {
 		startMin = Mathf.Floor(float.Parse(startTime.text));
 		startSec = ((float.Parse(startTime.text))-startMin)*100;
 		startTimeToSec = startMin*60+startSec;
-		scroll.value = startTimeToSec / maxlenght;
+
+        scroll.value = startTimeToSec / maxlenght;
 
 		stopMin = Mathf.Floor(float.Parse(stopTime.text));
 		stopSec = ((float.Parse(stopTime.text))-stopMin)*100;
@@ -83,10 +89,13 @@ public class MoveModel : MonoBehaviour {
 	}
 
 	void moveModelinPreview(){
-		if (!isPreview){
-			previewBar.gameObject.SetActive(false);
-			return;
-		}
+        if (!isPreview)
+        {
+            previewBar = GameObject.Find("PreviewBar");
+
+            previewBar.gameObject.SetActive(false);
+            return;
+        }
 
 		model.GetComponent<Transform>().Translate(modelVelocity * Time.deltaTime);
 	}

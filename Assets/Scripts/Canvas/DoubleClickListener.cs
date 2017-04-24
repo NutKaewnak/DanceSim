@@ -21,7 +21,10 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
 				}
 			} else if (this.GetComponent<AudioFileManager> ()) {
 				addAudioBlock ();
-			}
+			} else if (this.GetComponent<DanceModelInstanitiator>())
+            {
+                addDancerModel ();
+            }
 		}
 	}
 	#endregion
@@ -42,4 +45,10 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
 		block.GetComponent<AudioBlockManager>().setHandleStart(AudioGroupController.instance.getLastLength() / 2);
 		AudioController.instance.addAudioClip (this.GetComponent<AudioFileManager> ().getPath ());
 	}
+
+    void addDancerModel ()
+    {
+        Instantiate((GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Model/DancerModel.prefab",
+                    typeof(GameObject)), GameObject.Find("DanceGroup").transform);
+    }
 }

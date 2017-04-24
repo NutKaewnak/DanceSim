@@ -233,9 +233,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioStartTime: 0
-  audioName: Snoop Dogg - Smoke Weed Everyday.mp3
+  audioName: What does the fox say     Ylvis   Lyrics.wav
   handleStart: 0
   handleEnd: 0
+  startTimeText: {fileID: 114007749906419174}
 --- !u!222 &222216808821885920
 CanvasRenderer:
   m_ObjectHideFlags: 1

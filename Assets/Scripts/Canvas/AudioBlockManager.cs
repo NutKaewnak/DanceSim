@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class AudioBlockManager : MonoBehaviour, IDragHandler {
@@ -9,7 +10,9 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 	[SerializeField] private float audioStartTime;
 	[SerializeField] private string audioName;
 	[SerializeField] private float handleStart, handleEnd;
-
+    public Text startTimeText;
+    private float min;
+    private float sec;
 	void Start () {
 		audioStartTime = 0;
         Invoke ("initiate", 0.3f);
@@ -24,7 +27,22 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 		updatePositionOver ();
 		updateSize ();
 		commandAudio ();
-	}
+        updateStartTimeText();
+
+    }
+
+    void updateStartTimeText()
+    {
+        min = Mathf.Floor(audioStartTime / 60);
+        sec = (audioStartTime) % 60;
+        // curSec.text = (min + "." + Mathf.RoundToInt(sec));
+        startTimeText.text= min + ":";
+        if (Mathf.RoundToInt(sec) / 10 < 1)
+        {
+            startTimeText.text += 0;
+        }
+        startTimeText.text += Mathf.RoundToInt(sec);
+    }
 
 	void updateHandleEndTime () {
 		handleEnd = this.GetComponent<RectTransform>().sizeDelta.x + this.GetComponent<RectTransform>().anchoredPosition.x / 2;
