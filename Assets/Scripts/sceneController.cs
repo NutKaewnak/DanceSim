@@ -6,7 +6,6 @@ using UnityEditor;
 public class sceneController : MonoBehaviour {
 
 	public void backToEditor () {
-		Debug.Log ("test");
 		detachAudioGroup ();
 		detachDanceGroup ();
 		Application.LoadLevel("EditorScene");
