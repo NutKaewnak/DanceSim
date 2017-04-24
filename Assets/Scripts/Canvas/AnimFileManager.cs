@@ -5,12 +5,20 @@ using UnityEngine.UI;
 
 public class AnimFileManager : MonoBehaviour {
 
-	[SerializeField] private string animPath;
-	[SerializeField] private Text animName_text;
+	[SerializeField] 
+	private string animPath;
+	[SerializeField]
+	private string animName;
+	[SerializeField] 
+	private Text animName_text;
 
 	// Use this for initialization
 	void Start () {
 		animName_text.text = "testTorNaja";
+	}
+
+	public void setAnimName (string name) {
+		this.animName = name;
 	}
 
 }

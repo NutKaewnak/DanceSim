@@ -8,15 +8,15 @@ public class ChoreographController : MonoBehaviour {
 
 	public static ChoreographController instance;
 
-//	[SerializeField] 
-//	GameObject danceModel;
 	int selectingModel_hash;
+	bool isSelectingModel;
 	GameObject danceModelGroup;
 	Animator[] modelAnimatorArr;
 	Hashtable animHashTable;
 
 	void Start () {
 		instance = this;
+		isSelectingModel = false;
 		animHashTable = new Hashtable ();
 		updateHash ();
 	}
@@ -61,7 +61,19 @@ public class ChoreographController : MonoBehaviour {
 		return 0f;
 	}
 
-	public void setSelectingModel (int hash) {
+	public void setSelectingModelHash (int hash) {
 		this.selectingModel_hash = hash;
+	}
+
+	public int getSelectingModelHash () {
+		return this.selectingModel_hash;
+	}
+
+	public void setIsSelectingModel (bool choice) {
+		this.isSelectingModel = choice;
+	}
+
+	public bool getIsSelectingModel () {
+		return this.isSelectingModel;
 	}
 }

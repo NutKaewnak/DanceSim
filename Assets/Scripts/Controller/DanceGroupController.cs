@@ -9,7 +9,6 @@ public class DanceGroupController : MonoBehaviour {
 	void Awake() {
 		if (instance == null) {
 			instance = this;
-//			DontDestroyOnLoad(this);
 		} else {
 			if (instance != this) {
 				Destroy(this.gameObject);
