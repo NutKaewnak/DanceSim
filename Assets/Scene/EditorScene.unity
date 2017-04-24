@@ -1908,6 +1908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 651034125}
   - component: {fileID: 651034124}
+  - component: {fileID: 651034126}
   m_Layer: 5
   m_Name: AudioGroup
   m_TagString: Untagged
@@ -1939,6 +1940,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 845}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &651034126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 651034123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb2badfd56d6e84298ae1e152ac72de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastLength: 0
 --- !u!1 &668357326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,7 +3166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1348083689
 CanvasRenderer:
   m_ObjectHideFlags: 0

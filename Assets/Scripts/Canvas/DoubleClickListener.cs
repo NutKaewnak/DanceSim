@@ -34,8 +34,10 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
 	}
 
 	void addAudioBlock () {
-		GameObject block = Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/AudioBlock.prefab", 
-			typeof(GameObject)), GameObject.Find ("AudioGroup").transform);
-		block.GetComponent<AudioBlockManager>().setAudioName (this.GetComponent<AudioFileManager> ().getName());
+		GameObject audioBlock_prefab = (GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/AudioBlock.prefab", typeof(GameObject));
+		Transform audioGroup = GameObject.Find ("AudioGroup").transform;
+		audioBlock_prefab.GetComponent<AudioBlockManager>().setAudioName (this.GetComponent<AudioFileManager> ().getName());
+		GameObject block = Instantiate (audioBlock_prefab, audioGroup);
+		block.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (AudioGroupController.instance.getLastLength (), 0);
 	}
 }

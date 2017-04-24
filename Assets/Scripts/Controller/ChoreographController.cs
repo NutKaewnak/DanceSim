@@ -30,7 +30,7 @@ public class ChoreographController : MonoBehaviour {
 		Transform[] danceModel_arr = danceModelGroup.GetComponentsInChildren<Transform> ();
 		foreach (Transform model in danceModel_arr) {
 			if (model.gameObject.name.Equals ("U_Character_REF Kinect combined")) {
-				Debug.Log (model.gameObject.GetInstanceID());
+//				Debug.Log (model.gameObject.GetInstanceID());
 				animHashTable.Add (model.gameObject.GetInstanceID (), model.gameObject.GetComponent<Animator>());
 			}
 		}
