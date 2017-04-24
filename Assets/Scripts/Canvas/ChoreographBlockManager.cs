@@ -40,6 +40,14 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 		}
 	}
 
+	void updateSize () {
+		if (this.GetComponent<RectTransform> ().sizeDelta.x > motionLength) {
+			this.GetComponent<RectTransform> ().sizeDelta = new Vector2 (motionLength, 70f);
+		} else if (this.GetComponent<RectTransform> ().sizeDelta.x < 0f) {
+			this.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0f, 70f);
+		}
+	}
+
 	void commandMotion () {
 		float playTime = SimController.instance.getCurrentTime () - handleStart + motionStartTime;
 		if (handleStart <= SimController.instance.getCurrentTime() && SimController.instance.getCurrentTime() <= handleEnd) {
@@ -62,7 +70,7 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {
 			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
-			this.handleStart = this.GetComponent<RectTransform> ().anchoredPosition.x / 2;
+			this.handleStart = Mathf.Max(0f, this.GetComponent<RectTransform> ().anchoredPosition.x / 2);
 		}
 	}
 	#endregion

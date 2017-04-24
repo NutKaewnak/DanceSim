@@ -78,10 +78,9 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
-		Debug.Log ("yah");
 		if (!SimController.instance.isStatePlay ()) {
 			transform.position = new Vector3 (Input.mousePosition.x, transform.position.y, 0);
-			this.handleStart = this.GetComponent<RectTransform> ().anchoredPosition.x / 2;
+			this.handleStart = Mathf.Max(0f, this.GetComponent<RectTransform> ().anchoredPosition.x / 2);
 		}
 	}
 	#endregion

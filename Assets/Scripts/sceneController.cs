@@ -6,13 +6,14 @@ using UnityEditor;
 public class sceneController : MonoBehaviour {
 
 	public void backToEditor () {
-		Debug.Log ("test");
 		detachAudioGroup ();
+		detachDanceGroup ();
 		Application.LoadLevel("EditorScene");
     }
 
     public void goToRecordScene() {
 		detachAudioGroup ();
+		detachDanceGroup ();
 		Application.LoadLevel("RecordScene");
     }
 
@@ -20,5 +21,11 @@ public class sceneController : MonoBehaviour {
 		GameObject audioGroup = GameObject.Find ("AudioGroup");
 		audioGroup.transform.SetParent (null);
 		DontDestroyOnLoad (audioGroup);
+	}
+
+	void detachDanceGroup () {
+		DanceGroupMoverController.instance.danceGroup.SetActive (!DanceGroupMoverController.instance.danceGroup.activeSelf);
+		DanceGroupMoverController.instance.danceGroup.transform.SetParent (null);
+		DontDestroyOnLoad (DanceGroupMoverController.instance.danceGroup);
 	}
 }
