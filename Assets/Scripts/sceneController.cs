@@ -8,7 +8,7 @@ public class sceneController : MonoBehaviour {
 	public void backToEditor () {
 		detachAudioGroup ();
 		detachDanceGroup ();
-		Application.LoadLevel("EditorScene");
+		Application.LoadLevel("EditorScenePTor");
     }
 
     public void goToRecordScene() {
