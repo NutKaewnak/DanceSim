@@ -25,9 +25,8 @@ public class sceneController : MonoBehaviour {
 	}
 
 	void detachDanceGroup () {
-		GameObject danceGroup = GameObject.Find ("DanceGroup");
-		danceGroup.transform.SetParent (null);
-		danceGroup.SetActive (!danceGroup.activeSelf);
-		DontDestroyOnLoad (danceGroup);
+		DanceGroupMoverController.instance.danceGroup.SetActive (!DanceGroupMoverController.instance.danceGroup.activeSelf);
+		DanceGroupMoverController.instance.danceGroup.transform.SetParent (null);
+		DontDestroyOnLoad (DanceGroupMoverController.instance.danceGroup);
 	}
 }

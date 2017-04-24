@@ -12,8 +12,7 @@ public class AudioController : MonoBehaviour {
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(this);
-        }
-        else {
+        } else {
             if (instance != this) {
                 Destroy(this);
             }

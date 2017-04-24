@@ -114,7 +114,7 @@ public class SimController : MonoBehaviour {
 
 	void moveDanceGroup () {
 		GameObject danceGroup = GameObject.Find ("DanceGroup");
-		if (danceGroup && danceGroup.activeSelf) {
+		if (danceGroup) {
 			danceGroup.transform.SetParent (GameObject.Find ("Show").transform);
 		}
 	}
