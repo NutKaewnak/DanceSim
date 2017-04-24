@@ -66,6 +66,10 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 		this.GetComponent<RectTransform> ().anchoredPosition = new Vector2(handleStart * 2, 0);
 	}
 
+	public void setModelHash (int hash) {
+		this.modelHash = hash;
+	}
+
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
 		if (!SimController.instance.isStatePlay ()) {

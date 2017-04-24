@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragModel : MonoBehaviour
-{
+public class DragModel : MonoBehaviour {
     private Vector3 screenPoint;
     private Vector3 offset;
     [SerializeField] private Light light;
@@ -13,25 +12,16 @@ public class DragModel : MonoBehaviour
     private Vector3 oldPosition;
     private Vector3 newPosition;
 
-    void start(){
+    void Start () {
+		
     }
-
-
  
-    void OnMouseDown()
-    {
-        Vector3 popPOS = new Vector3(transform.position.x-1f,transform.position.y+3f, 0);
-        if(!checkClickmoveForPopUp){
-            popUp.gameObject.SetActive(true);
-        }
-        popUp.transform.position = popPOS;
-        screenPoint = Camera.main.WorldToScreenPoint(transform.position);
-        offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-        light.gameObject.SetActive(true);
+    void OnMouseDown () {
+		popUpModel ();
+		selectModel ();
     }
 
-    void OnMouseDrag()
-    {
+    void OnMouseDrag () {
         if(checkClickmove){
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
@@ -40,24 +30,41 @@ public class DragModel : MonoBehaviour
         }
     }
 
-    void OnMouseUp(){
+    void OnMouseUp () {
         light.gameObject.SetActive(false);
     }
 
-    public void setIsClickmoveForPopUp(){
+	void popUpModel () {
+		Vector3 popPOS = new Vector3(transform.position.x-1f,transform.position.y+3f, 0);
+		if(!checkClickmoveForPopUp){
+			popUp.gameObject.SetActive(true);
+		}
+		popUp.transform.position = popPOS;
+		screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+		offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+		light.gameObject.SetActive(true);
+	}
+
+	void selectModel () {
+		int modelHash = this.transform.GetChild (0).gameObject.GetInstanceID ();
+		ChoreographController.instance.setSelectingModelHash (modelHash);
+		ChoreographController.instance.setIsSelectingModel (true);
+	}
+
+    public void setIsClickmoveForPopUp () {
         checkClickmoveForPopUp = false;
     }
 
-    public void setMoved(){
+    public void setMoved () {
         checkClickmoveForPopUp = true;
         checkClickmove = true;
         oldPosition = gameObject.transform.position;
     }
-    public Vector3 getOldPosition(){
+    public Vector3 getOldPosition () {
         return oldPosition;
     }
 
-    public Vector3 getNewPosition(){
+    public Vector3 getNewPosition () {
         newPosition = gameObject.transform.position;
         return newPosition;
     }

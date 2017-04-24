@@ -8,15 +8,15 @@ public class ChoreographController : MonoBehaviour {
 
 	public static ChoreographController instance;
 
-//	[SerializeField] 
-//	GameObject danceModel;
-
+	int selectingModel_hash;
+	bool isSelectingModel;
 	GameObject danceModelGroup;
 	Animator[] modelAnimatorArr;
 	Hashtable animHashTable;
 
 	void Start () {
 		instance = this;
+		isSelectingModel = false;
 		animHashTable = new Hashtable ();
 		updateHash ();
 	}
@@ -30,7 +30,7 @@ public class ChoreographController : MonoBehaviour {
 		Transform[] danceModel_arr = danceModelGroup.GetComponentsInChildren<Transform> ();
 		foreach (Transform model in danceModel_arr) {
 			if (model.gameObject.name.Equals ("U_Character_REF Kinect combined")) {
-				Debug.Log (model.gameObject.GetInstanceID());
+//				Debug.Log (model.gameObject.GetInstanceID());
 				animHashTable.Add (model.gameObject.GetInstanceID (), model.gameObject.GetComponent<Animator>());
 			}
 		}
@@ -59,5 +59,21 @@ public class ChoreographController : MonoBehaviour {
 			}
 		}
 		return 0f;
+	}
+
+	public void setSelectingModelHash (int hash) {
+		this.selectingModel_hash = hash;
+	}
+
+	public int getSelectingModelHash () {
+		return this.selectingModel_hash;
+	}
+
+	public void setIsSelectingModel (bool choice) {
+		this.isSelectingModel = choice;
+	}
+
+	public bool getIsSelectingModel () {
+		return this.isSelectingModel;
 	}
 }
