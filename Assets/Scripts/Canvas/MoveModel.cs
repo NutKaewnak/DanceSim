@@ -28,7 +28,6 @@ public class MoveModel : MonoBehaviour {
 
     private void Start()
     {
-        previewBar = GameObject.Find("PreviewBar");
         scroll = Scrollbar.FindObjectOfType<Scrollbar>();
     }
 
@@ -92,7 +91,7 @@ public class MoveModel : MonoBehaviour {
 	void moveModelinPreview(){
         if (!isPreview)
         {
-            previewBar.gameObject.GetComponent<Image>().enabled = true;
+            previewBar.SetActive(true);
             return;
         }
 

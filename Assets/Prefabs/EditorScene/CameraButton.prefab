@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
-  newPosition: {x: 0, y: 0.5, z: 10}
+  newPosition: {x: 0, y: 0.8, z: 10}
 --- !u!114 &114078313499478962
 MonoBehaviour:
   m_ObjectHideFlags: 1
