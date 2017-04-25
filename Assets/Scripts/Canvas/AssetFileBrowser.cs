@@ -15,18 +15,17 @@ public class AssetFileBrowser : MonoBehaviour {
 	}
 
 	public void updateFile () {
-//		foreach (string guide in AssetDatabase.FindAssets ("t:animation")) {
-//			animPath_list.Add(AssetDatabase.GUIDToAssetPath (guide));
-//		}
-//
-//		foreach (string path in animPath_list) {
-//			string[] split = path.Split ("/" [0]);
-//			if (split [1].Equals ("Recordings")) {
-//				animName_list.Add (split [split.Length - 1]);
-//			}
-//		}
-		foreach (string name in animName_list) {
-			Debug.Log (name);
+		fileSlot_arr = this.GetComponentsInChildren<FileSlotManager> ();
+		foreach (string animName in animName_list) {
+			foreach (FileSlotManager slot in fileSlot_arr) {
+				if (!slot.file) {
+					GameObject animFile_prefab = (GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/AnimFile.prefab", typeof(GameObject));
+					GameObject animFile = Instantiate (animFile_prefab, slot.getTransform ());
+					animFile.GetComponent<RectTransform> ().anchoredPosition = Vector2.zero;
+					animFile.GetComponent<AnimFileManager> ().setAnimName (animName);
+					break;
+				}
+			}
 		}
 	}
 
@@ -36,7 +35,8 @@ public class AssetFileBrowser : MonoBehaviour {
 			fileSlot_arr = this.GetComponentsInChildren<FileSlotManager> ();
 			foreach (FileSlotManager slot in fileSlot_arr) {
 				if (!slot.file) {
-					GameObject audioFile = Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EditorScene/AudioFile.prefab", typeof(GameObject)), slot.getTransform());
+					GameObject audioFile_prefab = (GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/AudioFile.prefab", typeof(GameObject));
+					GameObject audioFile = Instantiate (audioFile_prefab, slot.getTransform());
 					audioFile.GetComponent<RectTransform> ().anchoredPosition = Vector2.zero;
 					audioFile.GetComponent<AudioFileManager> ().setPath (path);
 					break;
