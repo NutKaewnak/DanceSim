@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#if UNITY_EDITOR 
 using UnityEditor.Animations;
+#endif
 
 public class AnimController : MonoBehaviour {
-	[SerializeField] private AnimatorController anim_controller;
-	Animator anim;
+#if UNITY_EDITOR
+    [SerializeField] private AnimatorController anim_controller;
+#endif
+    Animator anim;
 	// Use this for initialization
 	void Start () {
 		anim = this.GetComponent<Animator> ();
