@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-#if UNITY_EDITOR 
 using UnityEditor;
 using UnityEditor.Animations;
-#endif
 
 public class ChoreographController : MonoBehaviour {
 
 	public static ChoreographController instance;
 
-#if UNITY_EDITOR
-    [SerializeField]
+	[SerializeField]
 	private AnimatorController modelAnimator;
-#endif
-
-    int selectingModel_hash;
+	int selectingModel_hash;
 	bool isSelectingModel;
 	GameObject danceModelGroup;
 	Animator[] modelAnimatorArr;

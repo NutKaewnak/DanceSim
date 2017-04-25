@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-#if UNITY_EDITOR 
 using UnityEditor;
-#endif
 
 public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
 	

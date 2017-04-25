@@ -6,13 +6,11 @@ public class RecordButtonManager : MonoBehaviour {
 
 	public float countTime;
 	public bool isRecord;
-#if UNITY_EDITOR
-    [SerializeField]
+	[SerializeField]
 	private UnityAnimationRecorder recorder;
-#endif
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
 		isRecord = false;
 	}
 	
