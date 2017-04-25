@@ -7,6 +7,7 @@ public class ModelManager : MonoBehaviour {
     private Vector3 offset;
     [SerializeField] private Light light;
     [SerializeField] private GameObject popUp;
+	[SerializeField] private Color modelColor;
     private bool checkClickmove = false;
     private bool checkClickmoveForPopUp = false;
     private Vector3 oldPosition;
@@ -15,24 +16,19 @@ public class ModelManager : MonoBehaviour {
     private int checkDancerHash;
 
     void Start () {
-		
+		modelColor = new Color( Random.value, Random.value, Random.value, 1.0f );
+		Debug.Log (modelColor);
     }
-    void Update()
-    {
+    void Update() {
         checkCollider();
         checkLightingOff();
     }
 
-    private void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
+    private void OnMouseOver() {
+        if (Input.GetMouseButtonDown(0)) {
             selectModel();
-
-
         }
-        if (Input.GetMouseButtonDown(1))
-        {
+        if (Input.GetMouseButtonDown(1)) {
             popUpModel();
         }
     }
@@ -70,13 +66,10 @@ public class ModelManager : MonoBehaviour {
         checkDancerHash = ChoreographController.instance.getSelectingModelHash();
     }
 
-    void checkCollider ()
-    {
-        if (SimController.instance.isStateStandby())
-        {
+    void checkCollider () {
+        if (SimController.instance.isStateStandby())  {
             this.GetComponent<BoxCollider>().enabled = true;
-        } else
-        {
+        } else {
             this.GetComponent<BoxCollider>().enabled = false;
         }
     }
@@ -99,15 +92,12 @@ public class ModelManager : MonoBehaviour {
         return newPosition;
     }
 
-    public void setMoveFalse()
-    {
+    public void setMoveFalse () {
         checkClickmove = false;
         checkClickmoveForPopUp = false;
     }
-    public void checkLightingOff()
-    {
-        if (checkDancerHash != ChoreographController.instance.getSelectingModelHash())
-        {
+    public void checkLightingOff () {
+        if (checkDancerHash != ChoreographController.instance.getSelectingModelHash()) {
             light.gameObject.SetActive(false);
         }
     }
