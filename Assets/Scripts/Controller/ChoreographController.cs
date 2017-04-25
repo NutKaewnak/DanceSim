@@ -43,8 +43,11 @@ public class ChoreographController : MonoBehaviour {
 
 	public void playMotion (int modelHash, string motionName, float time) {
 		Animator playAnim = animHashTable [modelHash] as Animator;
-		playAnim.speed = 1;
-		playAnim.PlayInFixedTime (motionName, 0, time);
+		if (SimController.instance.isStatePlay ()) {
+			playAnim.PlayInFixedTime (motionName, 0, time);
+		} else {
+			playAnim.Play (motionName, 0, time);
+		}
 	}
 
 //	public void playToStart (int modelHash, string motionName) {
