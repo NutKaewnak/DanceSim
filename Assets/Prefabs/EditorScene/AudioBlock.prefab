@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioBlock: {fileID: 224733115066607562}
-  audioBlockManager: {fileID: 114987529668395400}
+  blockManager: {fileID: 114987529668395400}
 --- !u!114 &114484837056890384
 MonoBehaviour:
   m_ObjectHideFlags: 1

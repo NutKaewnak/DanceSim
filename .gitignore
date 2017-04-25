@@ -8,6 +8,8 @@ Library/
 Assets/AssetStoreTools*
 Assets/Recordings*
 Assets/Musics*
+Assets/Resources/Recordings*
+Assets/Resources/Musics*
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #

@@ -8,12 +8,17 @@ public class ModelManager : MonoBehaviour {
     [SerializeField] private Light light;
     [SerializeField] private GameObject popUp;
 	[SerializeField] private Color modelColor;
+	[SerializeField] private int modelHash;
     private bool checkClickmove = false;
     private bool checkClickmoveForPopUp = false;
     private Vector3 oldPosition;
     private Vector3 newPosition;
 
     private int checkDancerHash;
+
+	void Awake () {
+		generateHash ();
+	}
 
     void Start () {
         modelColor = Random.ColorHSV(0,1,1,1,1,1);
@@ -24,6 +29,10 @@ public class ModelManager : MonoBehaviour {
         checkCollider();
         checkLightingOff();
     }
+
+	void generateHash () {
+		modelHash = this.transform.GetChild (0).gameObject.GetInstanceID ();
+	}
 
     private void OnMouseOver() {
         if (Input.GetMouseButtonDown(0)) {
@@ -89,10 +98,15 @@ public class ModelManager : MonoBehaviour {
         return newPosition;
     }
 
+	public int getModelHash () {
+		return this.modelHash;
+	}
+
     public void setMoveFalse () {
         checkClickmove = false;
         checkClickmoveForPopUp = false;
     }
+
     public void checkLightingOff () {
         if (checkDancerHash != ChoreographController.instance.getSelectingModelHash()) {
             light.gameObject.SetActive(false);
