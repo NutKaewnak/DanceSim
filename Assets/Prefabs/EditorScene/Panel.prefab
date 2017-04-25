@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 224598096413397502}
   - component: {fileID: 222625910240392394}
-  - component: {fileID: 114449601068549664}
   - component: {fileID: 114763212841351924}
+  - component: {fileID: 114053645791457888}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -80,6 +80,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114053645791457888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1429372097160526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eebca2508572ab4e8f09e8c4b2d6a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastLength: 0
+  modelHash: 0
 --- !u!114 &114290848455084214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,18 +147,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114449601068549664
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1429372097160526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d5ff22a418564a47bdeb39b31faa9dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastLength: 0
 --- !u!114 &114636886109350294
 MonoBehaviour:
   m_ObjectHideFlags: 1

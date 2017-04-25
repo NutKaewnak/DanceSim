@@ -16,8 +16,11 @@ public class ModelManager : MonoBehaviour {
 
     private int checkDancerHash;
 
-    void Start () {
+	void Awake () {
 		generateHash ();
+	}
+
+    void Start () {
         modelColor = Random.ColorHSV(0,1,1,1,1,1);
         light.color = modelColor;
 		Debug.Log (modelColor);

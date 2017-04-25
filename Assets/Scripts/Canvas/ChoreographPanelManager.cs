@@ -1,28 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEditor;
 
-public class ChoreographPanelManager : MonoBehaviour, IDropHandler {
+public class ChoreographPanelManager : MonoBehaviour {
+
+	public static ChoreographPanelManager instance;
+	[SerializeField]
+	float lastLength;
+	[SerializeField]
+	int modelHash;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		instance = this;
 	}
 
-	#region IDropHandler implementation
-	public void OnDrop (PointerEventData eventData) {
-		Debug.Log ("drop!!");
-		Debug.Log (eventData);
-		if (FileDragListener.itemBeingDragged && FileDragListener.itemBeingDragged.GetComponent<AnimFileManager>()) {
-			Instantiate ((GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EditorScene/ChoreographBlock.prefab", typeof(GameObject)), this.gameObject.transform);
+	// Update is called once per frame
+	void Update () {
+		updateLastLength ();
+	}
+
+	void updateLastLength () {
+		lastLength = 0;
+		ChoreographBlockManager[] choreographBlock_arr = this.GetComponentsInChildren<ChoreographBlockManager> ();
+		foreach (ChoreographBlockManager block in choreographBlock_arr) {
+			RectTransform block_rectTransform = block.gameObject.GetComponent<RectTransform> ();
+			float block_length = block_rectTransform.anchoredPosition.x + block_rectTransform.sizeDelta.x * 2;
+			if (lastLength == 0 || block_length > lastLength) {
+				lastLength = block_length;
+			}
 		}
 	}
-	#endregion
+
+	public void setModelHash (int hash) {
+		this.modelHash = hash;
+	}
+
+	public int getModelHash () {
+		return this.modelHash;
+	}
+
+	public float getLastLength () {
+		return this.lastLength;
+	}
 }

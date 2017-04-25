@@ -36,7 +36,7 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
 
         GameObject block = GameObject.Instantiate(choreoGraphBlock_prefab, choreoGraphInner_panel);
         block.GetComponent<ChoreographBlockManager>().setMotionName(this.GetComponent<AnimFileManager>().getAnimName());
-        block.GetComponent<ChoreographBlockManager>().setHandleStart(ChoreographPanelController.instance.getLastLength() / 2);
+//        block.GetComponent<ChoreographBlockManager>().setHandleStart(ChoreographPanelController.instance.getLastLength() / 2);
 
         ChoreographController.instance.addAnimClip(this.GetComponent<AnimFileManager>().getAnimName());
     }
@@ -53,8 +53,17 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
     }
 
     void addDancerModel () {
-        Instantiate((GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Model/DancerModel.prefab",
-                    typeof(GameObject)), GameObject.Find("DanceGroup").transform);
+		GameObject model_prefab = (GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/Model/DancerModel.prefab", typeof(GameObject));
+		Transform danceGroup = GameObject.Find ("DanceGroup").transform;
+		GameObject model = Instantiate(model_prefab, danceGroup);
+
+		GameObject panel_prefab = (GameObject)AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/EditorScene/Panel.prefab", typeof(GameObject));
+		Transform choreographPanel = GameObject.Find ("Choreograph Panel").transform;
+		GameObject panel = Instantiate (panel_prefab, choreographPanel);
+
+		Debug.Log (model.GetComponent<ModelManager> ().getModelHash ());
+		panel.GetComponent<ChoreographPanelManager> ().setModelHash (model.GetComponent<ModelManager>().getModelHash());
+		panel.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0f, -45f);
 		ChoreographController.instance.updateHash ();
     }
 }

@@ -626,6 +626,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1429372097160526, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
   m_IsPrefabParent: 0
@@ -2485,7 +2489,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429372097160526, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &634561734
@@ -2590,6 +2603,10 @@ Prefab:
       value: Panel (5)
       objectReference: {fileID: 0}
     - target: {fileID: 1920164742586538, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429372097160526, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3599,6 +3616,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1429372097160526, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
   m_IsPrefabParent: 0
@@ -3985,6 +4006,10 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[10].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951945245773374, guid: 9af10dbcbc198014aaa42a1e23be5bb9, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9af10dbcbc198014aaa42a1e23be5bb9, type: 2}
@@ -5285,6 +5310,10 @@ Prefab:
       value: Panel (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1920164742586538, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429372097160526, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -7789,6 +7818,10 @@ Prefab:
       value: Panel (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1920164742586538, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429372097160526, guid: 818322c1e34b9d54a886ae6ffb450668, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
