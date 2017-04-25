@@ -11,6 +11,7 @@ public class ChoreographController : MonoBehaviour {
 
 	[SerializeField]
 	private AnimatorController modelAnimator;
+	[SerializeField]
 	int selectingModel_hash;
 	bool isSelectingModel;
 	GameObject danceModelGroup;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
+public class ChoreographBlockManager : BlockManager, IDragHandler  {
 
 	/* 1 unit : 1 sec */
 	[SerializeField] private int modelHash;
@@ -52,14 +52,21 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 	void commandMotion () {
 		float playTime = SimController.instance.getCurrentTime () - handleStart + motionStartTime;
 		if (handleStart <= SimController.instance.getCurrentTime() && SimController.instance.getCurrentTime() <= handleEnd) {
-			
 			ChoreographController.instance.playMotion (modelHash, motionName, playTime);
 		}
 	}
 
-	public void setHandleStart (float x) {
+	public override void setHandleStart (float x) {
 		this.handleStart = x;
 		this.GetComponent<RectTransform> ().anchoredPosition = new Vector2(handleStart * 2, 5);
+	}
+
+	public override float getStartTime() {
+		return this.motionStartTime;
+	}
+
+	public override void setStartTime(float time) {
+		this.motionStartTime = time;
 	}
 
 	public void setModelHash (int hash) {
@@ -72,6 +79,10 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 
 	public string getMotionName () {
 		return this.motionName;
+	}
+
+	public override float getHandleStart () {
+		return this.handleStart;
 	}
 
 	#region IDragHandler implementation

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class AudioBlockManager : MonoBehaviour, IDragHandler {
+public class AudioBlockManager : BlockManager, IDragHandler {
 
 	/* 1 unit : 1 sec */
 	[SerializeField] private float audioStartTime;
@@ -95,16 +95,20 @@ public class AudioBlockManager : MonoBehaviour, IDragHandler {
 		}
 	}
 
-	public float getStartTime () {
+	public override float getStartTime () {
 		return this.audioStartTime;
 	}
 
-	public void setHandleStart (float x) {
+	public override void setHandleStart (float x) {
 		this.handleStart = x;
 		this.GetComponent<RectTransform> ().anchoredPosition = new Vector2(handleStart * 2, 0);
 	}
 
-    public void setStartTime (float time) {
+	public override float getHandleStart () {
+		return this.handleStart;
+	}
+
+	public override void setStartTime (float time) {
         this.audioStartTime = time;
     }
 

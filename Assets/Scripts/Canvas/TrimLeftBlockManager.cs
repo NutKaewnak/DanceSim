@@ -9,7 +9,7 @@ public class TrimLeftBlockManager : MonoBehaviour, IPointerClickHandler, IDragHa
     RectTransform audioBlock;
 
     [SerializeField]
-    AudioBlockManager audioBlockManager;
+	BlockManager blockManager;
 
     // Use this for initialization
     void Start () {
@@ -34,19 +34,20 @@ public class TrimLeftBlockManager : MonoBehaviour, IPointerClickHandler, IDragHa
 	#region IDragHandler implementation
 	public void OnDrag (PointerEventData eventData) {
 
-        if (audioBlockManager.getStartTime() >= 0)
+        if (blockManager.getStartTime() >= 0)
         {
             if (!SimController.instance.isStatePlay())
             {
                 Vector2 oldPosition = audioBlock.anchoredPosition;
                 audioBlock.sizeDelta = new Vector2(audioBlock.sizeDelta.x - (Input.mousePosition.x - oldPosition.x) / 4, 70f);
                 audioBlock.position = new Vector3(audioBlock.position.x + ((Input.mousePosition.x - oldPosition.x) / 2), audioBlock.position.y, audioBlock.position.z);
-                audioBlockManager.setStartTime(audioBlockManager.getStartTime() + ((audioBlock.anchoredPosition.x - oldPosition.x) / 2));
+                blockManager.setStartTime(blockManager.getStartTime() + ((audioBlock.anchoredPosition.x - oldPosition.x) / 2));
+				blockManager.setHandleStart (blockManager.getHandleStart() + ((audioBlock.anchoredPosition.x - oldPosition.x) / 2));
             }
         }
         else
         {
-            audioBlockManager.setStartTime(0);
+            blockManager.setStartTime(0);
         }
 	}
 	#endregion
