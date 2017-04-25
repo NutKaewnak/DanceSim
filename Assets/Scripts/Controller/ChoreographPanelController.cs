@@ -21,6 +21,7 @@ public class ChoreographPanelController : MonoBehaviour {
 
 	public void updateHash () {
 		panelHashTable.Clear ();
+        Debug.Log(this.GetComponentsInChildren<ChoreographPanelManager>().Length);
 		foreach (ChoreographPanelManager panel in this.GetComponentsInChildren<ChoreographPanelManager> ()) {
 			panelHashTable.Add (panel.getModelHash (), panel);
 		}
