@@ -13,11 +13,14 @@ public class ModelPopup : MonoBehaviour {
 
     public MoveModel moveModel;
     public GameObject setCameraTopFront;
+
+	public Button closeBtn;
     // Use this for initialization
 
 
     void OnMouseDown()
     {
+		closeBtn.gameObject.SetActive (true);
        MovePopup.gameObject.SetActive(true);
        PopUp.gameObject.SetActive(false);
        moveModel.model = dragModel;

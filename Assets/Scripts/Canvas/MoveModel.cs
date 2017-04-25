@@ -28,7 +28,7 @@ public class MoveModel : MonoBehaviour {
 
     private void Start()
     {
-        scroll = Scrollbar.FindObjectOfType<Scrollbar>();
+		scroll = SimController.instance.scroll;
     }
 
     void Update(){

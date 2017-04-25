@@ -12,8 +12,7 @@ public class SimController : MonoBehaviour {
 	private float currentTime;
 	[SerializeField]
 	private string state;
-	[SerializeField]
-	private Scrollbar scroll;
+	public Scrollbar scroll;
 	[SerializeField]
 	private float maxlenght = 900;
 	[SerializeField]
