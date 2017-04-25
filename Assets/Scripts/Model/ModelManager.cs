@@ -43,13 +43,9 @@ public class ModelManager : MonoBehaviour {
         }
     }
 
-    /*void OnMouseUp () {
-        light.gameObject.SetActive(false);
-    }*/
-
 	void popUpModel () {
         Debug.Log("popup");
-		Vector3 popPOS = new Vector3(transform.position.x-1f,transform.position.y+3f, 0);
+		Vector3 popPOS = new Vector3(transform.position.x-1f, transform.position.y+3f, 0);
 		if(!checkClickmoveForPopUp){
 			popUp.gameObject.SetActive(true);
 		}
