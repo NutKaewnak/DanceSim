@@ -3316,7 +3316,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0.9034481, g: 0, b: 1, a: 1}
-  m_Intensity: 8
+  m_Intensity: 1
   m_Range: 1.2729284
   m_SpotAngle: 1
   m_CookieSize: 10
@@ -3740,6 +3740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   light: {fileID: 108614432171202818}
   popUp: {fileID: 1397019237227600}
+  modelColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114325578011553026
 MonoBehaviour:
   m_ObjectHideFlags: 1
