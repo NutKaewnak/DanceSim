@@ -67,4 +67,5 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
 		ChoreographController.instance.updateHash ();
 		ChoreographPanelController.instance.updateHash ();
     }
+		
 }

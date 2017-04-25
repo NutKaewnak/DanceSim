@@ -26,6 +26,8 @@ public class MoveModel : MonoBehaviour {
 
 	private bool isPreview = false;
 
+	public PopUpPanelManager popupPanelManager;
+
     private void Start()
     {
 		scroll = SimController.instance.scroll;
@@ -58,6 +60,10 @@ public class MoveModel : MonoBehaviour {
 			SimController.instance.setStateStandBy();
 			model.GetComponent<Rigidbody>().velocity = Vector3.zero;
 			model.GetComponent<UnityAnimationRecorder>().StopRecording();
+
+			popupPanelManager.name = name;
+			popupPanelManager.handleStart = startSec;
+
 			isPreview = false;
 		}
 	}

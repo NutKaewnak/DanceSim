@@ -1595,6 +1595,7 @@ GameObject:
   - component: {fileID: 224489977360754992}
   - component: {fileID: 222145335426560750}
   - component: {fileID: 114826075245306422}
+  - component: {fileID: 114844081881892076}
   m_Layer: 5
   m_Name: popUpPanel
   m_TagString: Untagged
@@ -1699,6 +1700,7 @@ GameObject:
   - component: {fileID: 114303983406283214}
   - component: {fileID: 114486431261610762}
   - component: {fileID: 114232019758135570}
+  - component: {fileID: 95799966522919234}
   m_Layer: 0
   m_Name: DancerModel
   m_TagString: Untagged
@@ -3292,10 +3294,10 @@ BoxCollider:
   m_GameObject: {fileID: 1951945245773374}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.45, y: 1.5, z: 0.24096271}
-  m_Center: {x: 0, y: 1, z: 0.003502354}
+  m_Center: {x: -0, y: 1, z: 0.012499556}
 --- !u!65 &65413863061898322
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3361,6 +3363,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95799966522919234
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951945245773374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b5015f6964df4a4098a2db92e83c92a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108614432171202818
 Light:
   m_ObjectHideFlags: 1
@@ -3370,7 +3389,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 0.9034481, g: 0, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.36844444, a: 1}
   m_Intensity: 1
   m_Range: 1.2729284
   m_SpotAngle: 1
@@ -3553,7 +3572,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1250074946237356}
+      - m_Target: {fileID: 0}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -3564,7 +3594,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114025903665042860}
+      - m_Target: {fileID: 0}
         m_MethodName: changeTransform
         m_Mode: 1
         m_Arguments:
@@ -3917,6 +3947,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114844081881892076}
+        m_MethodName: addMoveBlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114303983406283214
@@ -3932,8 +3973,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   light: {fileID: 108614432171202818}
   popUp: {fileID: 1397019237227600}
-  modelColor: {r: 0, g: 0, b: 0, a: 0}
-  modelHash: 0
+  modelColor: {r: 0, g: 1, b: 0.36844444, a: 1}
+  modelHash: -104602
 --- !u!114 &114325578011553026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4148,17 +4189,6 @@ MonoBehaviour:
       - m_Target: {fileID: 114025903665042860}
         m_MethodName: changeTransform
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1705925449222482}
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4610,7 +4640,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1250074946237356}
+      - m_Target: {fileID: 0}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -4621,7 +4662,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114025903665042860}
+      - m_Target: {fileID: 0}
         m_MethodName: changeTransform
         m_Mode: 1
         m_Arguments:
@@ -4792,6 +4833,19 @@ MonoBehaviour:
   moveModel: {fileID: 114940003593443178}
   setCameraTopFront: {fileID: 1543990014832944}
   closeBtn: {fileID: 114137772983666410}
+--- !u!114 &114844081881892076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1879211348794014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dd3c62805cfd34f818f89cb9a77729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  handleStart: 0
 --- !u!114 &114851562376479662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4931,6 +4985,7 @@ MonoBehaviour:
   scroll: {fileID: 0}
   maxlenght: 900
   previewBar: {fileID: 1250074946237356}
+  popupPanelManager: {fileID: 114844081881892076}
 --- !u!114 &114968588431967038
 MonoBehaviour:
   m_ObjectHideFlags: 1
