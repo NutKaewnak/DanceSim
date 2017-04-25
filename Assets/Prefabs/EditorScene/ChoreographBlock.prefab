@@ -67,12 +67,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca95a37a1ea349b4ba4e7267adff028a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelHash: -322220
+  modelHash: -1472
   motionStartTime: 0
   motionName: 
   handleStart: 0
   handleEnd: 0
   motionLength: 0
+  blockHeight: 44
 --- !u!222 &222459787020033606
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -94,6 +95,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 730}
-  m_SizeDelta: {x: 20, y: 45}
+  m_AnchoredPosition: {x: 0, y: 720}
+  m_SizeDelta: {x: 20, y: 44}
   m_Pivot: {x: 0, y: 0}
