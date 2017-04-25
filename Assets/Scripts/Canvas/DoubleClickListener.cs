@@ -29,8 +29,7 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
 	}
     #endregion
 
-    void addChoreoGraphBlock()
-    {
+    void addChoreoGraphBlock() {
         GameObject choreoGraphBlock_prefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EditorScene/ChoreographBlock.prefab", typeof(GameObject));
         Transform choreoGraphInner_panel = GameObject.Find("Choreograph Panel/Panel").transform;
         choreoGraphBlock_prefab.GetComponent<ChoreographBlockManager>().setModelHash(ChoreographController.instance.getSelectingModelHash());
@@ -42,8 +41,7 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
         ChoreographController.instance.addAnimClip(this.GetComponent<AnimFileManager>().getAnimName());
     }
 
-    void addAudioBlock()
-    {
+    void addAudioBlock() {
         GameObject audioBlock_prefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EditorScene/AudioBlock.prefab", typeof(GameObject));
         Transform audioGroup = GameObject.Find("AudioGroup").transform;
         audioBlock_prefab.GetComponent<AudioBlockManager>().setAudioName(this.GetComponent<AudioFileManager>().getName());
@@ -54,9 +52,9 @@ public class DoubleClickListener : MonoBehaviour, IPointerClickHandler {
         AudioController.instance.addAudioClip(this.GetComponent<AudioFileManager>().getPath());
     }
 
-    void addDancerModel ()
-    {
+    void addDancerModel () {
         Instantiate((GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Model/DancerModel.prefab",
                     typeof(GameObject)), GameObject.Find("DanceGroup").transform);
+		ChoreographController.instance.updateHash ();
     }
 }

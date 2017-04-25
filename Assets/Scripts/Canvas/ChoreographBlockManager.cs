@@ -54,12 +54,6 @@ public class ChoreographBlockManager : MonoBehaviour, IDragHandler {
 			
 			ChoreographController.instance.playMotion (modelHash, motionName, playTime);
 		}
-//		if (SimController.instance.getCurrentTime () > handleEnd) {
-//			ChoreographController.instance.playToEnd (modelHash, motionName);
-//		}
-//		if (SimController.instance.getCurrentTime () < handleStart) {
-//			ChoreographController.instance.playToStart (modelHash, motionName);
-//		}
 	}
 
 	public void setHandleStart (float x) {

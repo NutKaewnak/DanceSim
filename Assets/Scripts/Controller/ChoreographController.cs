@@ -30,7 +30,8 @@ public class ChoreographController : MonoBehaviour {
 
 	}
 
-	void updateHash () {
+	public void updateHash () {
+		animHashTable.Clear ();
 		danceModelGroup = GameObject.Find ("DanceGroup");
 		Transform[] danceModel_arr = danceModelGroup.GetComponentsInChildren<Transform> ();
 		foreach (Transform model in danceModel_arr) {
@@ -49,16 +50,6 @@ public class ChoreographController : MonoBehaviour {
 			playAnim.Play (motionName, 0, time);
 		}
 	}
-
-//	public void playToStart (int modelHash, string motionName) {
-//		Animator playAnim = animHashTable [modelHash] as Animator;
-//		playAnim.speed = -100;
-//	}
-//
-//	public void playToEnd (int modelHash, string motionName) {
-//		Animator playAnim = animHashTable [modelHash] as Animator;
-//		playAnim.speed = 100;
-//	}
 
 	public float getMotionLengthByName (int modelHash, string motionName) {
 		Animator playAnim = animHashTable [modelHash] as Animator;
