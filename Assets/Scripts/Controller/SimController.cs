@@ -37,12 +37,11 @@ public class SimController : MonoBehaviour {
 		state = "standby";
 		moveAudioGroup ();
 		moveDanceGroup ();
+		moveChoreographPanel ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-//		Debug.Log ("state: " + state);
-		// Debug.Log("Cur :" +scroll.value );
 		currentTimeCounter ();
 		maxTime ();
 		stateCommand ();
@@ -50,7 +49,7 @@ public class SimController : MonoBehaviour {
 	}
 
 	void currentTimeCounter () {
-		min = Mathf.Floor(scroll.value*maxlenght / 60);
+		min = Mathf.Floor (scroll.value*maxlenght / 60);
 		sec = (scroll.value * maxlenght) % 60;
 		// curSec.text = (min + "." + Mathf.RoundToInt(sec));
 		curSec.text = min + ".";
@@ -62,8 +61,8 @@ public class SimController : MonoBehaviour {
 	}
 
 	void maxTime () {
-		mMin = Mathf.Floor(maxlenght/60);
-		mSec = (maxlenght)%60;
+		mMin = Mathf.Floor (maxlenght/60);
+		mSec = (maxlenght) % 60;
 		// animlenght.text = mMin + "." + Mathf.RoundToInt(mSec);
 		animlenght.text = mMin + ".";
 		if(Mathf.RoundToInt(mSec)/10<1){
@@ -116,6 +115,13 @@ public class SimController : MonoBehaviour {
 		GameObject danceGroup = GameObject.Find ("DanceGroup");
 		if (danceGroup) {
 			danceGroup.transform.SetParent (GameObject.Find ("Show").transform);
+		}
+	}
+
+	void moveChoreographPanel () {
+		GameObject choreograph_panel = GameObject.Find ("Choreograph Panel");
+		if (choreograph_panel) {
+			choreograph_panel.transform.SetParent(GameObject.Find ("Timeline").transform);
 		}
 	}
 
