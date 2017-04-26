@@ -31,9 +31,9 @@ public class sceneController : MonoBehaviour {
 		DontDestroyOnLoad (DanceGroupMoverController.instance.danceGroup);
 	}
 
-	void detachChoreographPanel () {
-		GameObject choreograph_panel = GameObject.Find ("Choreograph Panel");
-		choreograph_panel.transform.SetParent (null);
-		DontDestroyOnLoad (choreograph_panel);
+    void detachChoreographPanel () {
+        DanceGroupMoverController.instance.choreograph_panel.SetActive(!DanceGroupMoverController.instance.choreograph_panel.activeSelf);
+        DanceGroupMoverController.instance.choreograph_panel.transform.SetParent(null);
+		DontDestroyOnLoad (DanceGroupMoverController.instance.choreograph_panel);
 	}
 }

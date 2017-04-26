@@ -5,7 +5,7 @@ using UnityEngine;
 public class DanceGroupMoverController : MonoBehaviour {
 
 	public static DanceGroupMoverController instance;
-	public GameObject danceGroup;
+	public GameObject danceGroup, choreograph_panel;
 
 
 	void Awake() {
@@ -23,6 +23,7 @@ public class DanceGroupMoverController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		danceGroup = GameObject.Find ("DanceGroup");
+        choreograph_panel = GameObject.Find("Choreograph Panel");
 	}
 	
 	// Update is called once per frame
