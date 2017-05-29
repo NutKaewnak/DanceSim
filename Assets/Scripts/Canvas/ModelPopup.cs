@@ -13,6 +13,7 @@ public class ModelPopup : MonoBehaviour {
 
     public MoveModel moveModel;
     public GameObject setCameraTopFront;
+    public Button Butondone;
     // Use this for initialization
 
 
@@ -22,6 +23,7 @@ public class ModelPopup : MonoBehaviour {
        PopUp.gameObject.SetActive(false);
        moveModel.model = dragModel;
        dragModel.setMoved();
+        Butondone.gameObject.SetActive(true);
        setCameraTopFront.GetComponent<ChangeObjectPosition>().changeTransform();
     }
 }

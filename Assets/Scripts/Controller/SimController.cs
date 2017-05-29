@@ -122,8 +122,18 @@ public class SimController : MonoBehaviour {
 		GameObject choreograph_panel = GameObject.Find ("Choreograph Panel");
 		if (choreograph_panel) {
 			choreograph_panel.transform.SetParent(GameObject.Find ("Timeline").transform);
+            choreograph_panel.transform.SetAsFirstSibling();
 		}
 	}
+
+    void moveGameObject()
+    {
+        GameObject gameObj = GameObject.Find("GameObject");
+        if(gameObj)
+        {
+
+        }
+    }
 
 	// SET STATE
 	public void setStatePlay () {

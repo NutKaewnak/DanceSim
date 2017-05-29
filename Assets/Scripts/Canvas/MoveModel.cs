@@ -10,7 +10,7 @@ public class MoveModel : MonoBehaviour {
 	public InputField stopTime;
 	public Scrollbar scroll;
     public float maxlenght = 900;
-	public GameObject previewBar;
+	//public GameObject previewBar;
 
 	private float startTimeToSec =0;
 	private float startMin =0;
@@ -91,7 +91,7 @@ public class MoveModel : MonoBehaviour {
 	void moveModelinPreview(){
         if (!isPreview)
         {
-            previewBar.SetActive(true);
+            //previewBar.SetActive(true);
             return;
         }
 
